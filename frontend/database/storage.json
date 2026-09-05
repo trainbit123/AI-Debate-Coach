@@ -1,6 +1,151 @@
 {
   "debates": [
     {
+      "id": "deb_1788605906703_5oajez",
+      "topic": "Artificial Intelligence governance must enforce strict compute limits",
+      "userPosition": "FOR",
+      "aiPosition": "AGAINST",
+      "difficulty": "intermediate",
+      "maxRounds": 3,
+      "currentRound": 2,
+      "isEndless": false,
+      "rounds": [
+        {
+          "roundNumber": 1,
+          "userArgument": "Because frontier AI models pose catastrophic biosecurity risks, empirical benchmarks and compute thresholds are essential to safeguard society.",
+          "aiCounterargument": "While your argument highlights valid concerns on paper, it overlooks critical real-world realities. First, imposing sweeping mandates without addressing the compliance costs inadvertently entrenches the largest incumbents who alone possess the legal machinery to comply. Furthermore, as empirical data from recent governance benchmarks shows, preemptive statutory bans stifle decentralized, open-source innovation before public benefits are realized. How do you propose preventing regulatory capture without gutting the startup ecosystem?",
+          "aiFollowUpQuestion": "How do you reconcile the enforcement costs of your proposal against the risk of regulatory capture by incumbent monopolies?",
+          "score": {
+            "logic": 72,
+            "evidence": 43,
+            "relevance": 60,
+            "clarity": 60,
+            "counterargumentHandling": 75,
+            "overall": 63,
+            "strongestPoint": "Great rebuttal and comeback that was clear and easy to follow.",
+            "weakestPoint": "Needs real-world facts, numbers, or specific examples to back it up.",
+            "coachFeedback": "Decent start. Be careful not to make broad claims without backing them up with concrete facts.",
+            "dimensionDetails": {
+              "logic": {
+                "score": 72,
+                "reason": "Strong causal chain established with 1 explicit premise connector(s).",
+                "evidence": "Premise markers observed: \"Because\"",
+                "improvement": "Elevate your logic by connecting your claim directly to its impact using 'because [premise], it necessarily follows that [outcome]'."
+              },
+              "evidence": {
+                "score": 43,
+                "reason": "Lacks empirical statistics, institutional citations, or verifiable real-world benchmarks.",
+                "evidence": "No statistics, study references, or concrete data points detected.",
+                "improvement": "Include at least one specific metric, study citation, or historical precedent to validate your claim."
+              },
+              "relevance": {
+                "score": 60,
+                "reason": "Directly addresses core motion resolution with 1 matched subject term(s).",
+                "evidence": "Topic terms observed: \"compute\"",
+                "improvement": "Tie your argument explicitly back to the words in the motion to prevent the opposition from claiming topical drift."
+              },
+              "clarity": {
+                "score": 60,
+                "reason": "Terse delivery (18 words); lacks sufficient elaboration.",
+                "evidence": "Standard phrasing without explicit signposts (18 words).",
+                "improvement": "Use deliberate rhetorical signposts ('firstly', 'furthermore', 'in contrast') to make your structure immediately clear."
+              },
+              "rebuttal": {
+                "score": 75,
+                "reason": "Solid opening stance establishing initial rhetorical momentum.",
+                "evidence": "Round 1 opening speech.",
+                "improvement": "Anticipate the strongest counter-argument the opposition will bring up and pre-emptively neutralize it."
+              }
+            }
+          },
+          "fallacies": [],
+          "ragContext": {
+            "matchedChunks": [
+              {
+                "chunkId": "kb-ai-02-summary",
+                "topicId": "topic-ai-regulation",
+                "docTitle": "Bletchley Declaration & International AI Safety Institutes",
+                "category": "International Diplomacy",
+                "stanceAlignment": "PRO_REGULATION",
+                "sourceType": "report",
+                "claim": "Bletchley Declaration & International AI Safety Institutes",
+                "content": "Bletchley Declaration & International AI Safety Institutes (International Diplomacy): Signed by 28 nations including the US, UK, EU, and China at the AI Safety Summit, formally affirming that frontier AI presents severe risks of catastrophic harm in cybersecurity and biological proliferation.",
+                "citations": [
+                  "UK Government, Bletchley Declaration on AI Safety (November 2023)",
+                  "US Department of Commerce NIST AI Safety Institute Consortium"
+                ],
+                "keywords": [
+                  "bletchley declaration",
+                  "frontier models",
+                  "catastrophic risk",
+                  "biosecurity",
+                  "safety institute",
+                  "red teaming"
+                ],
+                "relevanceScore": 99,
+                "reasonForRetrieval": "Direct phrase match on key terms (frontier, catastrophic)"
+              },
+              {
+                "chunkId": "kb-ai-04-evidence",
+                "topicId": "topic-ai-regulation",
+                "docTitle": "Open Source AI Innovation & Regulatory Capture",
+                "category": "Economic Arguments",
+                "stanceAlignment": "AGAINST_REGULATION",
+                "sourceType": "dataset",
+                "claim": "Open Source AI Innovation & Regulatory Capture",
+                "content": "Empirical Evidence & Impact: Open-source models like Llama, Mistral, and Stable Diffusion democratize access for startups and academic researchers in developing nations. Licensing mandates on compute thresholds risk making non-commercial open-source model releases legally perilous. [Citations: Electronic Frontier Foundation (EFF), 'The Importance of Open Source AI', 2024, National Bureau of Economic Research (NBER) Working Paper No. 32014]",
+                "citations": [
+                  "Electronic Frontier Foundation (EFF), 'The Importance of Open Source AI', 2024",
+                  "National Bureau of Economic Research (NBER) Working Paper No. 32014"
+                ],
+                "keywords": [
+                  "regulatory capture",
+                  "open source",
+                  "incumbent advantage",
+                  "monopolies",
+                  "startups",
+                  "compute licensing"
+                ],
+                "relevanceScore": 99,
+                "reasonForRetrieval": "Direct phrase match on key terms (frontier, models)"
+              },
+              {
+                "chunkId": "kb-ai-01-evidence",
+                "topicId": "topic-ai-regulation",
+                "docTitle": "European Union Artificial Intelligence Act (2024)",
+                "category": "Legislation & Treaties",
+                "stanceAlignment": "PRO_REGULATION",
+                "sourceType": "dataset",
+                "claim": "European Union Artificial Intelligence Act (2024)",
+                "content": "Empirical Evidence & Impact: Requires mandatory third-party conformity assessments, high-quality training dataset governance, human oversight mechanisms, and post-market monitoring for all models with compute thresholds exceeding 10^25 FLOPs. Penalties for non-compliance reach up to €35 million or 7% of global annual turnover. [Citations: Official Journal of the European Union, Regulation (EU) 2024/1689, European Parliament Legislative Resolution on Artificial Intelligence Act]",
+                "citations": [
+                  "Official Journal of the European Union, Regulation (EU) 2024/1689",
+                  "European Parliament Legislative Resolution on Artificial Intelligence Act"
+                ],
+                "keywords": [
+                  "eu ai act",
+                  "risk tiers",
+                  "high risk",
+                  "compliance",
+                  "auditing",
+                  "biometrics",
+                  "penalties"
+                ],
+                "relevanceScore": 99,
+                "reasonForRetrieval": "Direct phrase match on key terms (models, empirical)"
+              }
+            ],
+            "durationMs": 1
+          },
+          "timestamp": "2026-09-05T10:58:26.816Z"
+        }
+      ],
+      "aiOpeningStatement": "While your argument highlights valid concerns on paper, it overlooks critical real-world realities. First, imposing sweeping mandates without addressing the compliance costs inadvertently entrenches the largest incumbents who alone possess the legal machinery to comply. Furthermore, as empirical data from recent governance benchmarks shows, preemptive statutory bans stifle decentralized, open-source innovation before public benefits are realized. How do you propose preventing regulatory capture without gutting the startup ecosystem?",
+      "isComplete": false,
+      "createdAt": "2026-09-05T10:58:26.703Z",
+      "updatedAt": "2026-09-05T10:58:26.817Z"
+    },
+    {
       "id": "deb_1788583700323_28yt2d",
       "topic": "social media is good for students of all age groups",
       "userPosition": "FOR",
