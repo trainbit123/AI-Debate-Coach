@@ -23,12 +23,14 @@ import {
 import { SpeechService } from "@/services/speechService";
 import AudioVisualizer from "./AudioVisualizer";
 import { cn, playChime } from "@/lib/utils";
+import GenAiActionToolbar from "./GenAiActionToolbar";
 
 interface MicRecorderProps {
   onSubmitArgument: (argumentText: string) => void;
   isProcessing: boolean;
   disabled?: boolean;
   roundNumber: number;
+  debateId?: string;
 }
 
 export default function MicRecorder({
@@ -36,6 +38,7 @@ export default function MicRecorder({
   isProcessing,
   disabled = false,
   roundNumber,
+  debateId,
 }: MicRecorderProps) {
   const [isRecording, setIsRecording] = useState(false);
   const [transcript, setTranscript] = useState("");
@@ -531,8 +534,25 @@ export default function MicRecorder({
           </div>
         )}
 
-        {/* Action Controls & Coach Review */}
-        <div className="mt-4 flex flex-wrap items-center justify-between gap-3 pt-2">
+        {/* GenAI Toolbar (Improve, Cross-Examine, Counterarguments) */}
+        {debateId && (
+          <div className="mt-3 pt-2 border-t border-slate-800/80">
+            <GenAiActionToolbar
+              debateId={debateId}
+              currentDraft={currentText}
+              disabled={isProcessing || isRecording}
+              onApplyImprovedArgument={(improved) => {
+                setManualText(improved);
+                setTranscript(improved);
+                setMode("keyboard");
+                setIsEditing(true);
+              }}
+            />
+          </div>
+        )}
+
+        {/* Bottom Action Bar: Read Back, Reset, and Submit */}
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-800">
           <div className="flex items-center gap-2">
             {/* Read Back My Argument Button */}
             {currentText && !isRecording && (

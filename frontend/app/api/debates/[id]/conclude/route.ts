@@ -12,7 +12,7 @@ export async function POST(
       return NextResponse.json({ error: "Debate session not found" }, { status: 404 });
     }
 
-    const concludedSession = concludeDebateSession(session);
+    const concludedSession = await concludeDebateSession(session);
     saveDebate(concludedSession);
 
     return NextResponse.json({

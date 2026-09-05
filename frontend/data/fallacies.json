@@ -1,0 +1,148 @@
+[
+  {
+    "id": "ad-hominem",
+    "name": "Ad Hominem",
+    "simpleDefinition": "Attacking the person's character or motives instead of addressing their argument.",
+    "academicDefinition": "An argument that rebuts a claim by pointing to negative attributes of the person asserting it rather than examining the claim's logical validity.",
+    "remedy": "Focus strictly on the argument's data and logic; separate the idea from the individual who proposed it.",
+    "severity": "high",
+    "penaltyPoints": 15,
+    "patterns": [
+      "you are biased",
+      "you are stupid",
+      "you don't know anything",
+      "you're just a",
+      "what do you know",
+      "idiot",
+      "corrupt",
+      "hypocrite"
+    ]
+  },
+  {
+    "id": "strawman",
+    "name": "Strawman",
+    "simpleDefinition": "Twisting or exaggerating what the other person said to make it easier to attack.",
+    "academicDefinition": "Misrepresenting an opponent's position to make it easier to attack, then knocking down the misrepresentation rather than the actual argument.",
+    "remedy": "Steel-man your opponent's argument before attempting to refute it; address their strongest point directly.",
+    "severity": "high",
+    "penaltyPoints": 15,
+    "patterns": [
+      "so you're saying that we should",
+      "so you want everyone to",
+      "so you basically want to destroy",
+      "you want to completely ban",
+      "you want to eliminate all"
+    ]
+  },
+  {
+    "id": "hasty-generalization",
+    "name": "Hasty Generalization",
+    "simpleDefinition": "Jumping to a sweeping conclusion from only one or two isolated examples.",
+    "academicDefinition": "Drawing an inductive conclusion regarding an entire population based on a sample size that is statistically inadequate or unrepresentative.",
+    "remedy": "Cite empirical datasets, representative demographic samples, or statistical studies rather than personal anecdotes.",
+    "severity": "medium",
+    "penaltyPoints": 10,
+    "patterns": [
+      "everyone knows that",
+      "it always happens",
+      "i know someone who",
+      "my friend had this",
+      "all of them are",
+      "nobody ever"
+    ]
+  },
+  {
+    "id": "slippery-slope",
+    "name": "Slippery Slope",
+    "simpleDefinition": "Claiming that one small step will inevitably lead to a chain of catastrophic events without proof.",
+    "academicDefinition": "Asserting that a relatively small first step leads to a chain of related events culminating in some significant, negative effect, without providing evidence for the causality.",
+    "remedy": "Demonstrate the concrete causal mechanism between step A and step B instead of assuming an inevitable domino effect.",
+    "severity": "medium",
+    "penaltyPoints": 10,
+    "patterns": [
+      "will lead to the total collapse",
+      "will inevitably destroy",
+      "before you know it",
+      "next thing you know",
+      "the beginning of the end"
+    ]
+  },
+  {
+    "id": "false-dilemma",
+    "name": "False Dilemma",
+    "simpleDefinition": "Pretending there are only two extreme choices when a sensible middle ground exists.",
+    "academicDefinition": "Presenting two alternative states as the only possibilities, when in fact more possibilities exist.",
+    "remedy": "Acknowledge nuanced policy compromises, hybrid approaches, and intermediate solutions.",
+    "severity": "medium",
+    "penaltyPoints": 10,
+    "patterns": [
+      "either we do this or",
+      "you are either with us or",
+      "the only two options",
+      "it's either total",
+      "there is no alternative"
+    ]
+  },
+  {
+    "id": "appeal-to-authority",
+    "name": "Appeal to Authority",
+    "simpleDefinition": "Claiming something must be true just because a famous person or influencer said so.",
+    "academicDefinition": "Arguing that a claim is true merely because an authority figure asserted it, especially outside their domain of expertise or without substantiating evidence.",
+    "remedy": "Provide the underlying data or peer-reviewed consensus rather than leaning solely on a celebrity or figure's name.",
+    "severity": "low",
+    "penaltyPoints": 8,
+    "patterns": [
+      "elon musk said",
+      "because a famous",
+      "celebrity agrees",
+      "well-known influencer",
+      "because the ceo said"
+    ]
+  },
+  {
+    "id": "appeal-to-emotion",
+    "name": "Appeal to Emotion",
+    "simpleDefinition": "Using strong feelings like fear, pity, or outrage to win an argument instead of real facts.",
+    "academicDefinition": "Manipulating the recipient's emotions (pity, fear, anger, pride) in order to win an argument, especially in the absence of factual evidence.",
+    "remedy": "Complement emotional empathy with hard statistics, objective outcomes, and measurable impacts.",
+    "severity": "low",
+    "penaltyPoints": 8,
+    "patterns": [
+      "think of the children",
+      "how can you have a heart",
+      "you have no empathy",
+      "it is disgusting that",
+      "fear will grip"
+    ]
+  },
+  {
+    "id": "circular-reasoning",
+    "name": "Circular Reasoning",
+    "simpleDefinition": "Repeating your claim in different words without giving a real reason to prove it.",
+    "academicDefinition": "A logical fallacy in which the reasoner begins with what they are trying to end with (begging the question).",
+    "remedy": "Provide independent external evidence or an underlying premise that does not assume the conclusion.",
+    "severity": "medium",
+    "penaltyPoints": 10,
+    "patterns": [
+      "it is true because it's a fact",
+      "it works because it is effective",
+      "it is good because it's beneficial",
+      "obviously right because"
+    ]
+  },
+  {
+    "id": "false-cause",
+    "name": "False Cause",
+    "simpleDefinition": "Assuming that because event A happened before event B, event A must have caused it.",
+    "academicDefinition": "Post hoc ergo propter hoc; assuming that because two events occur in succession, the first event must be the cause of the second.",
+    "remedy": "Rule out confounding variables and establish a scientifically validated causal mechanism.",
+    "severity": "medium",
+    "penaltyPoints": 10,
+    "patterns": [
+      "right after that happened",
+      "as soon as they did that",
+      "therefore it caused",
+      "that's the only reason why"
+    ]
+  }
+]

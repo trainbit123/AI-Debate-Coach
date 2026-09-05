@@ -1,17 +1,27 @@
 # DebateAI — Backend REST API Service
 
-Dedicated Node.js and Express REST API server providing the scoring rubric, 9-fallacy scanning, stance enforcement, and debate session orchestration.
+Dedicated Node.js and Express REST API server providing the RAG knowledge engine, 9-fallacy scanning, multi-model LLM generation, Socratic cross-examination, and debate session orchestration.
 
 ---
 
-## Features
+## Architecture (RAG + GenAI)
 
-- **Express Server** (`server.ts`): Fully typed REST API with CORS and JSON parsing.
-- **Debate Engine** (`services/debateEngine.ts`): Stance lock, difficulty settings, and round state tracking.
-- **Fallacy Scanner** (`services/fallacyDetector.ts`): Detects 9 cognitive fallacies (*Ad Hominem, Strawman, False Dilemma, Slippery Slope, etc.*).
-- **Scoring Service** (`services/scoringService.ts`): Computes 5-dimension argument scores (Logic, Evidence, Relevance, Clarity, Rebuttal) and final judicial verdicts.
-- **Zero-Key Deterministic Fallback**: Works immediately with zero API keys, with optional Gemini / Groq / OpenAI LLM expansion.
-- **Local Persistence** (`database/db.ts`): Portable JSON database storing debate history, win rates, and progress analytics.
+```
+User Argument
+     │
+     ▼
+[RAG Engine] ──> BM25/TF-IDF Retrieval over Knowledge Base (`data/knowledge_base/`)
+     │                                 │
+     │ (Ranked Evidence Chunks)         │
+     ▼                                 ▼
+[Prompt Builder] <─────────────────────┘
+     │ (Grounded System Prompt)
+     ▼
+[LLM Abstraction] ──> Groq (Llama 3.3 70B) / Gemini 1.5 Flash / OpenAI / Zero-Key Fallback
+     │
+     ▼
+[Structured Response] ──> Rebuttal + RAG Citations + 5-Metric Scoring + Fallacies
+```
 
 ---
 
@@ -19,16 +29,21 @@ Dedicated Node.js and Express REST API server providing the scoring rubric, 9-fa
 
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
-| `GET` | `/health` | Server health check |
-| `GET` | `/` | API route index |
+| `GET` | `/health` | Server health check & service status |
+| `GET` | `/` | API route index and architecture summary |
 | `POST` | `/api/debates` | Create new debate session |
-| `GET` | `/api/debates` | List all historical debates |
-| `GET` | `/api/debates/:id` | Retrieve single debate session |
-| `POST` | `/api/debates/:id/turn` | Submit speech/typed argument turn & get AI rebuttal |
-| `POST` | `/api/debates/:id/conclude` | Conclude debate session & produce verdict |
-| `GET` | `/api/history` | List debate transcripts |
+| `GET` | `/api/debates` | List all historical debate sessions |
+| `GET` | `/api/debates/:id` | Retrieve single debate session state |
+| `POST` | `/api/debates/:id/turn` | Submit argument: executes RAG retrieval, fallacy scan, scoring, and AI rebuttal |
+| `POST` | `/api/debates/:id/cross-examine` | **GenAI**: Generates 2 targeted Socratic cross-examination questions |
+| `POST` | `/api/debates/:id/improve` | **GenAI**: Toulmin-model argument rewriter with empirical warrants |
+| `POST` | `/api/debates/:id/counterarguments` | **GenAI**: Previews 3 strategic opponent attack angles |
+| `POST` | `/api/debates/:id/conclude` | Conclude debate session: delivers judicial verdict and executive brief |
+| `POST` | `/api/rag/retrieve` | **RAG**: Directly queries the knowledge base and returns ranked evidence chunks |
+| `GET` | `/api/rag/retrieve?q=...` | **RAG**: Fast query param retrieval inspection |
+| `GET` | `/api/history` | List past debate transcripts |
 | `GET` | `/api/progress` | User win rates, fallacy breakdown, and score stats |
-| `POST` | `/api/search/voice` | Voice research assistant and evidence retrieval |
+| `POST` | `/api/search/voice` | Voice research assistant and external evidence retrieval |
 
 ---
 

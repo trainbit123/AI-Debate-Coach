@@ -38,6 +38,17 @@ export interface RoundData {
   aiFollowUpQuestion?: string;
   score: ArgumentScore;
   fallacies: DetectedFallacy[];
+  ragContext?: {
+    matchedChunks: Array<{
+      chunkId: string;
+      docTitle: string;
+      category: string;
+      content: string;
+      citations: string[];
+      relevanceScore?: number;
+    }>;
+    durationMs: number;
+  };
   timestamp: string;
 }
 
@@ -115,6 +126,39 @@ export interface ProcessTurnResponse {
   fallacies: DetectedFallacy[];
   aiCounterargument: string;
   aiFollowUpQuestion?: string;
+  ragContext?: {
+    matchedChunks: Array<{
+      chunkId: string;
+      docTitle: string;
+      category: string;
+      content: string;
+      citations: string[];
+      relevanceScore?: number;
+    }>;
+    durationMs: number;
+  };
   isComplete: boolean;
   finalVerdict?: FinalReport;
+}
+
+export interface CrossExaminationQuestion {
+  question: string;
+  targetPremise: string;
+  coachingTip: string;
+}
+
+export interface ImprovedArgumentResponse {
+  improvedArgument: string;
+  keyChanges: string[];
+  toulminBreakdown: {
+    claim: string;
+    warrant: string;
+    impact: string;
+  };
+}
+
+export interface CounterargumentItem {
+  angle: string;
+  argument: string;
+  evidenceCited: string;
 }

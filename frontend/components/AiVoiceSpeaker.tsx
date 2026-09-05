@@ -18,12 +18,25 @@ import { SpeechService } from "@/services/speechService";
 import AudioVisualizer from "./AudioVisualizer";
 import { cn } from "@/lib/utils";
 
+import RagEvidenceCard from "./RagEvidenceCard";
+
 interface AiVoiceSpeakerProps {
   counterargument: string;
   followUpQuestion?: string;
   aiPosition: Position;
   roundNumber: number;
   autoPlay?: boolean;
+  ragContext?: {
+    matchedChunks: Array<{
+      chunkId: string;
+      docTitle: string;
+      category: string;
+      content: string;
+      citations: string[];
+      relevanceScore?: number;
+    }>;
+    durationMs: number;
+  };
 }
 
 export default function AiVoiceSpeaker({
@@ -32,6 +45,7 @@ export default function AiVoiceSpeaker({
   aiPosition,
   roundNumber,
   autoPlay = false,
+  ragContext,
 }: AiVoiceSpeakerProps) {
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [speechRate, setSpeechRate] = useState<number>(1.0);
@@ -207,6 +221,14 @@ export default function AiVoiceSpeaker({
               &ldquo;{followUpQuestion}&rdquo;
             </p>
           </div>
+        )}
+
+        {/* RAG Retrieved Knowledge & Evidence Card */}
+        {ragContext && ragContext.matchedChunks && ragContext.matchedChunks.length > 0 && (
+          <RagEvidenceCard
+            matchedChunks={ragContext.matchedChunks}
+            durationMs={ragContext.durationMs}
+          />
         )}
       </div>
     </div>

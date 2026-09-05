@@ -266,6 +266,7 @@ export default function LiveDebatePage() {
             followUpQuestion={activeFollowUp}
             aiPosition={session.aiPosition}
             roundNumber={session.currentRound}
+            ragContext={latestRound?.ragContext}
             autoPlay={true}
           />
 
@@ -296,6 +297,7 @@ export default function LiveDebatePage() {
               onSubmitArgument={handleSubmitArgument}
               isProcessing={isProcessingTurn}
               roundNumber={session.currentRound}
+              debateId={session.id}
             />
           ) : (
             /* Completed Banner with Link to Results */

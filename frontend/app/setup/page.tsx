@@ -16,39 +16,14 @@ import {
 import { Difficulty, Position } from "@/lib/types/debate";
 import TopicCard from "@/components/TopicCard";
 import { cn } from "@/lib/utils";
+import debateTopicsData from "@/data/debate_topics.json";
 
-const PRESET_TOPICS = [
-  {
-    title: "Artificial intelligence development should be strictly regulated by governments",
-    category: "AI & Tech",
-    difficulty: "intermediate" as Difficulty,
-  },
-  {
-    title: "Universal Basic Income should replace existing welfare programs",
-    category: "Economics",
-    difficulty: "advanced" as Difficulty,
-  },
-  {
-    title: "Remote work is better for employees and companies than working in an office",
-    category: "Workplace",
-    difficulty: "beginner" as Difficulty,
-  },
-  {
-    title: "Social media algorithms do more harm than good to teenagers",
-    category: "Society",
-    difficulty: "intermediate" as Difficulty,
-  },
-  {
-    title: "Nuclear energy is necessary to fight climate change",
-    category: "Environment",
-    difficulty: "intermediate" as Difficulty,
-  },
-  {
-    title: "Spending money on space exploration is worth it despite problems on Earth",
-    category: "Science",
-    difficulty: "advanced" as Difficulty,
-  },
-];
+const PRESET_TOPICS = debateTopicsData.map((t) => ({
+  title: t.topic,
+  category: t.category,
+  difficulty: t.difficulty as Difficulty,
+  description: t.description,
+}));
 
 export default function SetupPage() {
   const router = useRouter();

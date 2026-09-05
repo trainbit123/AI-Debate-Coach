@@ -30,7 +30,7 @@ export async function createDebateSession(params: {
   const id = `deb_${Date.now()}_${Math.random().toString(36).substring(2, 8)}`;
   const now = new Date().toISOString();
 
-  // Generate AI opening statement for context setting
+  // Generate AI opening statement for context setting (RAG-grounded)
   const aiOpeningStatement = await generateOpeningStatement(
     topic,
     aiPosition,
@@ -60,7 +60,7 @@ export async function createDebateSession(params: {
 }
 
 /**
- * Processes a round turn from user argument
+ * Processes a round turn from user argument with RAG context
  */
 export async function executeRoundTurn(
   session: DebateSession,
@@ -74,7 +74,7 @@ export async function executeRoundTurn(
     session.userPosition === "FOR" ? "AGAINST" : "FOR";
   const aiPosition = expectedAiPosition;
 
-  // Call AI analysis
+  // Call RAG-grounded AI analysis
   const aiResult = await processTurnWithAI({
     topic: session.topic,
     userPosition: session.userPosition,
@@ -107,6 +107,7 @@ export async function executeRoundTurn(
       coachFeedback: aiResult.coach_feedback,
     },
     fallacies: aiResult.fallacies,
+    ragContext: aiResult.ragContext,
     timestamp: new Date().toISOString(),
   };
 
@@ -116,7 +117,7 @@ export async function executeRoundTurn(
 
   let finalVerdict: FinalReport | undefined = undefined;
   if (isComplete) {
-    finalVerdict = generateFinalReport(
+    finalVerdict = await generateFinalReport(
       session.topic,
       session.userPosition,
       session.difficulty,
@@ -138,6 +139,7 @@ export async function executeRoundTurn(
     fallacies: roundData.fallacies,
     aiCounterargument: roundData.aiCounterargument,
     aiFollowUpQuestion: roundData.aiFollowUpQuestion,
+    ragContext: roundData.ragContext,
     isComplete,
     finalVerdict,
   };
@@ -148,8 +150,8 @@ export async function executeRoundTurn(
 /**
  * Concludes an ongoing debate session on demand, generating final judicial adjudication
  */
-export function concludeDebateSession(session: DebateSession): DebateSession {
-  const finalVerdict = generateFinalReport(
+export async function concludeDebateSession(session: DebateSession): Promise<DebateSession> {
+  const finalVerdict = await generateFinalReport(
     session.topic,
     session.userPosition,
     session.difficulty,

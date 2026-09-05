@@ -1,0 +1,56 @@
+{
+  "topicId": "topic-ai-regulation",
+  "topicTitle": "Artificial Intelligence Regulation",
+  "documents": [
+    {
+      "id": "kb-ai-01",
+      "title": "European Union Artificial Intelligence Act (2024)",
+      "category": "Legislation & Treaties",
+      "stanceAlignment": "PRO_REGULATION",
+      "summary": "The EU AI Act classifies AI systems into four risk tiers: Unacceptable Risk (banned, e.g. social scoring), High Risk (strict auditing, biometric ID, critical infrastructure), Limited Risk (transparency obligations), and Minimal Risk.",
+      "evidence": "Requires mandatory third-party conformity assessments, high-quality training dataset governance, human oversight mechanisms, and post-market monitoring for all models with compute thresholds exceeding 10^25 FLOPs. Penalties for non-compliance reach up to €35 million or 7% of global annual turnover.",
+      "citations": ["Official Journal of the European Union, Regulation (EU) 2024/1689", "European Parliament Legislative Resolution on Artificial Intelligence Act"],
+      "keywords": ["eu ai act", "risk tiers", "high risk", "compliance", "auditing", "biometrics", "penalties"]
+    },
+    {
+      "id": "kb-ai-02",
+      "title": "Bletchley Declaration & International AI Safety Institutes",
+      "category": "International Diplomacy",
+      "stanceAlignment": "PRO_REGULATION",
+      "summary": "Signed by 28 nations including the US, UK, EU, and China at the AI Safety Summit, formally affirming that frontier AI presents severe risks of catastrophic harm in cybersecurity and biological proliferation.",
+      "evidence": "Establishes independent government AI Safety Institutes (AISI) with state authority to conduct pre-release red-teaming on frontier models before public deployment. Stresses that frontier risks are inherently global and cannot be mitigated solely by domestic market forces.",
+      "citations": ["UK Government, Bletchley Declaration on AI Safety (November 2023)", "US Department of Commerce NIST AI Safety Institute Consortium"],
+      "keywords": ["bletchley declaration", "frontier models", "catastrophic risk", "biosecurity", "safety institute", "red teaming"]
+    },
+    {
+      "id": "kb-ai-03",
+      "title": "Stanford AI Index Report 2024: Economic and Regulatory Impacts",
+      "category": "Empirical Research",
+      "stanceAlignment": "BALANCED",
+      "summary": "Comprehensive benchmark assessing global AI private investment ($95.9B in 2023), model training costs ($78M for GPT-4, $191M for Gemini Ultra), and the surge in global legislative mentions of AI.",
+      "evidence": "42% of surveyed enterprise AI systems exhibited vulnerabilities in bias, data privacy, or hallucination without specialized fine-tuning guardrails. However, compliance costs for small enterprises increased by an estimated 28% in jurisdictions with nascent regulations.",
+      "citations": ["Stanford Institute for Human-Centered Artificial Intelligence (HAI), AI Index Report 2024"],
+      "keywords": ["stanford ai index", "training costs", "private investment", "compliance burden", "enterprise vulnerabilities", "hallucination"]
+    },
+    {
+      "id": "kb-ai-04",
+      "title": "Open Source AI Innovation & Regulatory Capture",
+      "category": "Economic Arguments",
+      "stanceAlignment": "AGAINST_REGULATION",
+      "summary": "Overly broad regulation of foundational model training creates regulatory capture, heavily favoring established incumbent tech giants who can absorb high legal and auditing costs while chilling independent open-source research.",
+      "evidence": "Open-source models like Llama, Mistral, and Stable Diffusion democratize access for startups and academic researchers in developing nations. Licensing mandates on compute thresholds risk making non-commercial open-source model releases legally perilous.",
+      "citations": ["Electronic Frontier Foundation (EFF), 'The Importance of Open Source AI', 2024", "National Bureau of Economic Research (NBER) Working Paper No. 32014"],
+      "keywords": ["regulatory capture", "open source", "incumbent advantage", "monopolies", "startups", "compute licensing"]
+    },
+    {
+      "id": "kb-ai-05",
+      "title": "Geopolitical Asymmetry in Autonomous AI Governance",
+      "category": "Geopolitical Strategy",
+      "stanceAlignment": "AGAINST_REGULATION",
+      "summary": "Unilateral domestic limitations on AI capabilities within democratic nations allow rival geopolitical powers with fewer ethical boundaries to surpass Western security capabilities.",
+      "evidence": "Military modernization in autonomous drone swarms, offensive cyber-capabilities, and national intelligence models requires continuous, rapid capability scaling. Restricting dual-use algorithmic research domestically without enforceable international reciprocity produces unilateral vulnerability.",
+      "citations": ["Center for Strategic and International Studies (CSIS), 'Artificial Intelligence and the Geopolitical Balance', 2024"],
+      "keywords": ["geopolitics", "national security", "drone swarms", "dual-use technology", "cyber warfare", "unilateral disarmament"]
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "systemName": "Collegiate Oxford Judicial Debate Rubric",
+  "version": "2.0.0",
+  "totalMaxScore": 100,
+  "metrics": [
+    {
+      "id": "logic",
+      "name": "Logic & Reasoning",
+      "weight": 0.25,
+      "description": "Syllogistic validity, absence of formal and informal fallacies, clear causal links between premise and conclusion.",
+      "benchmarkLevels": {
+        "exceptional": "Deductively sound, explicitly articulated warrants, zero fallacies detected.",
+        "proficient": "Valid reasoning with minor unstated assumptions; well-structured premises.",
+        "developing": "Contains non-sequiturs or informal fallacies; logical links are fragile.",
+        "novice": "Assertion-based claims lacking deductive structure; multiple egregious fallacies."
+      }
+    },
+    {
+      "id": "evidence",
+      "name": "Real-World Evidence",
+      "weight": 0.20,
+      "description": "Quality, timeliness, and relevance of cited facts, statistical data, legislative precedents, and empirical studies.",
+      "benchmarkLevels": {
+        "exceptional": "Specific empirical citations with verifiable figures, dates, and named institutional sources.",
+        "proficient": "Cites general real-world examples and accurate facts with solid relevance.",
+        "developing": "Relying heavily on personal anecdotes or unsourced assertions.",
+        "novice": "Devoid of empirical grounding; pure speculation or demonstrably false claims."
+      }
+    },
+    {
+      "id": "relevance",
+      "name": "Topic Relevance",
+      "weight": 0.20,
+      "description": "Direct adherence to the core motion, avoiding deflection, topic drift, or peripheral red herrings.",
+      "benchmarkLevels": {
+        "exceptional": "Lasered directly on the crux of the motion; addresses fundamental policy trade-offs.",
+        "proficient": "Keeps focus on primary issues with negligible drift into tangents.",
+        "developing": "Focuses on peripheral issues, losing sight of the core motion.",
+        "novice": "Off-topic; completely evades the central question under debate."
+      }
+    },
+    {
+      "id": "clarity",
+      "name": "Speech Clarity",
+      "weight": 0.15,
+      "description": "Conciseness, rhetorical structure, effective signposting, and accessibility of vocabulary.",
+      "benchmarkLevels": {
+        "exceptional": "Crystal-clear structure, punchy signposting, zero verbal clutter, compelling cadence.",
+        "proficient": "Easily understood, well-organized points with good transitional flow.",
+        "developing": "Rambling or overly convoluted sentence structures; difficult to follow.",
+        "novice": "Disjointed, fragmented, or incoherent speech."
+      }
+    },
+    {
+      "id": "rebuttal",
+      "name": "Rebuttal & Comeback",
+      "weight": 0.20,
+      "description": "Direct engagement with and deconstruction of the opponent's prior arguments and counter-claims.",
+      "benchmarkLevels": {
+        "exceptional": "Systematically dismantles the opponent's premises, turns their evidence into concessions.",
+        "proficient": "Directly clashes with main opposing points and offers valid counter-evidence.",
+        "developing": "Only partially responds to opponent; leaves major challenges unanswered.",
+        "novice": "Ignores the opponent completely; repeats opening assertion as if unaddressed."
+      }
+    }
+  ],
+  "gradeThresholds": [
+    { "minScore": 90, "grade": "A+", "label": "Outstanding Grandmaster" },
+    { "minScore": 80, "grade": "A", "label": "Strong Collegiate Competitor" },
+    { "minScore": 70, "grade": "B", "label": "Solid Debater" },
+    { "minScore": 60, "grade": "C", "label": "Fair Effort" },
+    { "minScore": 0, "grade": "Needs Practice", "label": "Foundational" }
+  ]
+}

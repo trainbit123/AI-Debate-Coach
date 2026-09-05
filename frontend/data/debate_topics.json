@@ -1,0 +1,110 @@
+[
+  {
+    "id": "topic-ai-regulation",
+    "topic": "Artificial intelligence development should be strictly regulated by international treaties and governments",
+    "category": "Technology & Society",
+    "difficulty": "intermediate",
+    "description": "Examines whether rapid AI capabilities pose existential, economic, and biosecurity risks requiring binding international governance, or whether strict regulation stifles open innovation.",
+    "keywords": ["ai", "artificial intelligence", "regulation", "treaty", "safety", "frontier models", "copyright", "jobs", "innovation"],
+    "supporting_points": [
+      "Frontier AI models pose catastrophic biosecurity and cyber warfare risks requiring mandatory pre-deployment safety evaluations.",
+      "Algorithmic decision-making in hiring, criminal sentencing, and loans perpetuates systemic racial and economic discrimination without statutory oversight.",
+      "Unrestricted AI-generated disinformation undermines democratic elections and human epistemic security."
+    ],
+    "opposing_points": [
+      "Heavy regulatory compliance burdens entrench tech monopolies (Google, Microsoft, Meta) by creating high barriers to entry for open-source startups.",
+      "Unilateral Western regulation merely allows authoritarian regimes without ethical guardrails to pull ahead in the geopolitical AI race.",
+      "Preemptive laws on rapidly evolving technologies risk obsolescence and criminalize benign research before real harms emerge."
+    ]
+  },
+  {
+    "id": "topic-ubi",
+    "topic": "Universal Basic Income should replace existing targeted welfare programs",
+    "category": "Economics & Policy",
+    "difficulty": "intermediate",
+    "description": "Explores replacing means-tested social safety nets with an unconditional cash transfer to all citizens, analyzing inflation, labor supply, and bureaucratic overhead.",
+    "keywords": ["ubi", "universal basic income", "welfare", "poverty", "cash transfer", "labor", "automation", "inflation"],
+    "supporting_points": [
+      "Eliminates degrading bureaucratic means-testing and the welfare trap where beneficiaries lose aid immediately upon finding low-wage work.",
+      "Provides an indispensable financial cushion against automation-driven labor market disruption and displacement.",
+      "Empowers individuals to invest in entrepreneurship, caretaking, and education, stimulating aggregate demand from the bottom up."
+    ],
+    "opposing_points": [
+      "Replacing specialized disability, housing, and healthcare subsidies with a flat cash payment disproportionately harms vulnerable populations with extraordinary needs.",
+      "Funding a meaningful nationwide UBI requires trillions of dollars annually in new taxation or deficit spending, accelerating inflation.",
+      "Reduces incentives for marginal labor participation in essential, entry-level service occupations."
+    ]
+  },
+  {
+    "id": "topic-remote-work",
+    "topic": "Remote work is better for employees, companies, and society than working in an office",
+    "category": "Workplace & Society",
+    "difficulty": "beginner",
+    "description": "Analyzes the trade-offs between flexibility, commuter carbon savings, and work-life balance versus spontaneous collaboration, company culture, and loneliness.",
+    "keywords": ["remote work", "work from home", "office", "productivity", "commute", "culture", "hybrid", "wellbeing"],
+    "supporting_points": [
+      "Eliminating daily commutes reclaims hours of personal time, reduces urban transit congestion, and eliminates hundreds of millions of tons of vehicular carbon emissions.",
+      "Expands talent recruitment globally beyond expensive metropolitan hubs, allowing companies to hire geographically diverse talent.",
+      "Improves employee autonomy, mental well-being, and work-life integration."
+    ],
+    "opposing_points": [
+      "Erodes serendipitous in-person brainstorming, mentorship of junior employees, and shared organizational culture.",
+      "Blurred boundaries between work and personal life frequently lead to chronic burnout and unrecorded overtime.",
+      "Accelerates social isolation, depression, and the decay of commercial downtown economic ecosystems."
+    ]
+  },
+  {
+    "id": "topic-social-media",
+    "topic": "Social media algorithms that optimize for engagement do more harm than good to teenagers",
+    "category": "Technology & Health",
+    "difficulty": "beginner",
+    "description": "Debates whether engagement-maximizing recommendation feeds promote compulsive use, body image dysmorphia, and polarization, or provide vital peer connection.",
+    "keywords": ["social media", "algorithm", "teenagers", "mental health", "engagement", "addiction", "depression", "dopamine"],
+    "supporting_points": [
+      "Algorithms intentionally optimize for outrage, shock value, and emotional dysregulation to maximize daily active minutes and advertising revenue.",
+      "Correlative and longitudinal studies link prolonged algorithmic feed consumption to escalating teen anxiety, depression, and self-harm.",
+      "Algorithmic echo chambers hyper-accelerate radicalization and cyberbullying without parental visibility."
+    ],
+    "opposing_points": [
+      "Social platforms provide essential social support, community, and creative expression for marginalized or geographically isolated youth.",
+      "Broad demonization of algorithms ignores individual agency, digital literacy education, and parental guidance responsibilities.",
+      "Personalized recommendation engines connect students to educational communities, career guidance, and civic activism."
+    ]
+  },
+  {
+    "id": "topic-nuclear-energy",
+    "topic": "Nuclear energy is indispensable for fighting climate change and achieving net-zero emissions",
+    "category": "Energy & Environment",
+    "difficulty": "advanced",
+    "description": "Examines the role of nuclear fission and small modular reactors (SMRs) in baseload zero-carbon power versus safety concerns, high capital costs, and long construction timelines.",
+    "keywords": ["nuclear", "clean energy", "climate change", "net zero", "radiation", "fission", "smr", "renewables", "baseload"],
+    "supporting_points": [
+      "Provides high-density, weather-independent 24/7 baseload power that intermittent solar and wind cannot maintain without massive battery storage.",
+      "Nuclear energy possesses the lowest lifetime lifecycle carbon emissions and lowest land footprint per megawatt-hour of any clean electricity source.",
+      "Next-generation Small Modular Reactors (SMRs) feature passive safety systems that physically prevent catastrophic core meltdowns."
+    ],
+    "opposing_points": [
+      "Nuclear plants require 10–15 years to plan and build, whereas climate targets demand rapid emissions reductions before 2035.",
+      "Astronomical upfront capital costs and consistent multi-billion-dollar cost overruns crowd out faster, cheaper wind, solar, and grid battery installations.",
+      "Unresolved long-term storage of high-level radioactive waste and proliferation risks associated with enriched fissile materials."
+    ]
+  },
+  {
+    "id": "topic-space-exploration",
+    "topic": "Public spending on space exploration is justified despite pressing social problems on Earth",
+    "category": "Science & Governance",
+    "difficulty": "advanced",
+    "description": "Debates whether allocating billions to lunar and Mars missions is justified by spin-off technologies, planetary defense, and scientific expansion, or whether funds should be directed toward domestic poverty and healthcare.",
+    "keywords": ["space", "nasa", "mars", "astronomy", "funding", "satellites", "planetary defense", "technology transfer", "budget"],
+    "supporting_points": [
+      "Space exploration investments yield transformative commercial spin-offs including GPS, MRI imaging, advanced water purification, and climate-monitoring satellites.",
+      "Planetary defense programs like asteroid deflection and multi-planetary colonization safeguard long-term human survival against existential threats.",
+      "Every dollar allocated to public space agencies like NASA generates an estimated $2.50 to $3.00 in high-tech economic return and STEM workforce inspiration."
+    ],
+    "opposing_points": [
+      "Trillions of dollars are urgently needed today to alleviate acute domestic crises including homelessness, healthcare disparities, and clean water access.",
+      "Space exploration has increasingly transitioned into commercial tourism and billionaire ego projects rather than collective humanitarian benefit.",
+      "Planetary colonization proposals distract public policy from the immediate duty to remediate Earth's deteriorating biosphere."
+    ]
+  }
+]

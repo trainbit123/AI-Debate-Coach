@@ -1,0 +1,26 @@
+{
+  "topicId": "global-debate-principles",
+  "topicTitle": "Core Debate Principles, Syllogisms & Rebuttal Strategies",
+  "documents": [
+    {
+      "id": "kb-principle-01",
+      "title": "Toulmin Model of Argumentation",
+      "category": "Argument Structure",
+      "stanceAlignment": "METHODOLOGY",
+      "summary": "The gold-standard rhetorical framework for constructing robust, persuasive debate points.",
+      "evidence": "Every strong argument requires 6 interconnected components: Claim (the statement being argued), Grounds/Data (empirical evidence and facts), Warrant (the logical link connecting data to claim), Backing (support for the warrant), Qualifier (degrees of certainty), and Rebuttal (preemptive address of counter-arguments).",
+      "citations": ["Stephen Toulmin, 'The Uses of Argument', Cambridge University Press"],
+      "keywords": ["toulmin model", "claim", "warrant", "grounds", "backing", "rebuttal", "syllogism"]
+    },
+    {
+      "id": "kb-principle-02",
+      "title": "Four Pillars of Collegiate Rebuttals (AREI Framework)",
+      "category": "Rebuttal Strategy",
+      "stanceAlignment": "METHODOLOGY",
+      "summary": "Proven framework for dismantling an opponent's case: Assertion, Reasoning, Evidence, Impact.",
+      "evidence": "To effectively neutralize an opposing point, a debater must not simply state that the opponent is wrong; they must challenge the validity of the premise, identify unstated assumptions, introduce conflicting empirical data, and compare the net magnitude (impact) of both sides.",
+      "citations": ["World Universities Debating Championship (WUDC) Adjudication Manual", "Oxford Union Debating Guide"],
+      "keywords": ["arei framework", "assertion", "reasoning", "evidence", "impact", "wudc", "oxford union"]
+    }
+  ]
+}
