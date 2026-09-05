@@ -64,39 +64,70 @@ Debate against an uncompromising collegiate Oxford-level AI opponent, speak your
 
 ---
 
-## Quick Start (100% React & TypeScript / 0% Python)
+## Project Structure (Separated Frontend & Backend)
 
+```
+hackathonreact/
+├── frontend/                 # Next.js 14 + React Frontend Application
+│   ├── app/                  # App Router pages, layouts, and API proxies
+│   ├── components/           # React UI components (Mic, Waveforms, Badges, Cards)
+│   ├── services/             # Client debate, fallacy, and scoring integrations
+│   ├── database/             # Local storage layer (storage.json)
+│   ├── public/               # Favicons, icons, and static assets
+│   ├── package.json          # Frontend dependencies & Next.js scripts
+│   └── tsconfig.json         # Frontend TypeScript config
+│
+├── backend/                  # Dedicated Express REST API Backend
+│   ├── server.ts             # Express REST API server (:5000)
+│   ├── services/             # Core debate logic, scoring & fallacy scanner
+│   ├── database/             # File-backed database & seed data
+│   ├── package.json          # Express dependencies & TSX runtime
+│   └── tsconfig.json         # Backend TypeScript config
+│
+├── vercel.json               # Root Vercel build & route configuration
+├── .gitignore                # Monorepo ignore rules
+├── package.json              # Root workspace orchestrator
+└── README.md                 # Project documentation
+```
+
+---
+
+## ⚡ How to Deploy on Vercel
+
+You can deploy DebateAI to **Vercel** in 2 minutes:
+
+### Option 1: Automatic 1-Click Import (Recommended)
+1. Push this repository to your **GitHub**.
+2. Go to [**vercel.com/new**](https://vercel.com/new) and click **Import** next to your repository (`AI-Debate-Coach`).
+3. In the project configuration:
+   - Next to **Root Directory**, click **Edit** and select **`frontend`**.
+   - Vercel will automatically detect **Next.js**.
+4. Click **Deploy**!
+   - Your frontend, UI, audio, and all API routes will build and deploy instantly with global edge latency.
+
+### Option 2: Using Root `vercel.json`
+If you leave Root Directory as `./`, Vercel automatically reads the included [`vercel.json`](file:///c:/Users/kisho/OneDrive/Desktop/hackathonreact/vercel.json) to execute `cd frontend && npm install && npm run build` and serve from `frontend/.next`.
+
+---
+
+## 💻 Local Development
+
+### 1. Run Frontend Only (Port 3000)
 ```bash
-# 1. Install Node dependencies
-npm install
-
-# 2. Run Development Server
 npm run dev
+# or
+npm run dev:frontend
 ```
+Open [**http://localhost:3000**](http://localhost:3000).
 
-The application will start immediately at [**http://localhost:3000**](http://localhost:3000).
-
----
-
-## Production Build & Start
-
+### 2. Run Backend Express Server (Port 5000)
 ```bash
-# Build the production bundle
-npm run build
-
-# Start the production server
-npm start
+npm run dev:backend
 ```
+Server starts on [**http://localhost:5000**](http://localhost:5000).
 
----
-
-## Technical Architecture (0% Python / 100% React & TypeScript)
-
-- **Frontend**: Next.js 14 App Router, React 18, Tailwind CSS, Lucide Icons, Canvas Confetti.
-- **Audio & Voice**: Native Web Speech API (`SpeechRecognition` & `SpeechSynthesis`) with real-time waveform visualization.
-- **Debate Engine** (`services/debateEngine.ts`): Rule-enforcing debate adjudicator with strict stance locking and difficulty curves.
-- **Fallacy Scanner** (`services/fallacyDetector.ts`): Real-time analysis of 9 classical cognitive fallacies with remedial coaching.
-- **Scoring System** (`services/scoringService.ts`): 5-factor mathematical rubric (Logic, Evidence, Relevance, Clarity, Rebuttal) with final judicial verdicts.
-- **AI Service** (`services/llmService.ts`): Integration with Groq (`llama-3.3-70b`), Google Gemini, and OpenAI with a zero-key deterministic fallback debater.
-- **Data Layer** (`database/db.ts`): File-backed JSON persistence (`database/storage.json`) with zero external database dependencies.
+### 3. Production Build
+```bash
+npm run build
+```
 
