@@ -67,11 +67,36 @@ console.log("--- 1. Testing Scoring Service & Mathematical Ownership ---");
     assert(score.dimensionDetails.logic.evidence.length > 0, "Logic dimension has observable evidence");
     assert(score.dimensionDetails.logic.improvement.length > 0, "Logic dimension has actionable improvement directive");
   }
+
+  // Test empty input handling in calculateArgumentScore
+  const emptyScore = calculateArgumentScore({
+    userArgument: "",
+    topic: "Renewable energy subsidies are essential for economic growth",
+    fallacies: [],
+    difficulty: "intermediate",
+    roundNumber: 1,
+  });
+  assert(
+    emptyScore.overall >= 0 && emptyScore.overall <= 100 && !isNaN(emptyScore.overall),
+    "Empty argument input safely produces bounded overall score without NaN",
+    `Empty overall: ${emptyScore.overall}`
+  );
+  assert(
+    emptyScore.logic >= 0 && emptyScore.evidence >= 0 && emptyScore.clarity >= 0,
+    "Empty argument yields non-negative dimension scores"
+  );
 }
 
 // 2. TEST FALLACY DETECTION WITH CERTAINTY & WHY-IT-QUALIFIES
 console.log("\n--- 2. Testing Fallacy Detector (Certainty & Justification) ---");
 {
+  // Test empty and whitespace input handling
+  const emptyFallacies = detectFallaciesHeuristic("");
+  assert(emptyFallacies.length === 0, "Empty input to fallacy detector safely yields zero fallacies");
+
+  const whitespaceFallacies = detectFallaciesHeuristic("    \n\t   ");
+  assert(whitespaceFallacies.length === 0, "Whitespace-only input to fallacy detector safely yields zero fallacies");
+
   const adHominemText = "My opponent is an idiot and corrupt shill who has no brain.";
   const adHominemFallacies = detectFallaciesHeuristic(adHominemText);
   assert(adHominemFallacies.length > 0, "Ad Hominem detected");
@@ -93,9 +118,14 @@ console.log("\n--- 2. Testing Fallacy Detector (Certainty & Justification) ---")
     assert(!!ss.whyItQualifies, "Slippery Slope whyItQualifies present");
   }
 
+  // Clean argument tests (expect zero fallacies)
   const cleanText = "According to peer-reviewed studies by the International Energy Agency, distributed solar reduces peak grid demand by 18 percent.";
   const cleanFallacies = detectFallaciesHeuristic(cleanText);
   assert(cleanFallacies.length === 0, "Clean academic text triggers zero fallacies");
+
+  const cleanPhilText = "Universal healthcare ensures foundational human rights and improves labor productivity across low-income demographics.";
+  const cleanPhilFallacies = detectFallaciesHeuristic(cleanPhilText);
+  assert(cleanPhilFallacies.length === 0, "Clean philosophical argument triggers zero fallacies");
 }
 
 // 3. TEST ADVANCED RAG RETRIEVAL (DIVERSITY & NORMALIZATION)
@@ -119,6 +149,21 @@ console.log("\n--- 3. Testing RAG Engine (Diversity, Deduplication & Normalizati
     assert(score >= 0 && score <= 100, `Chunk "${chunk.docTitle}" score normalized to 0-100`, `Score: ${score}`);
     assert(!!chunk.reasonForRetrieval && chunk.reasonForRetrieval.length > 0, `Chunk "${chunk.docTitle}" has reasonForRetrieval`);
   }
+
+  // Test RAG retrieval when knowledge base has no matching documents
+  const zeroMatchRag = retrieveKnowledge("zyxwvutsrqponmlkjihgfedcba nonexistingconcept987654321");
+  assert(
+    zeroMatchRag.matchedChunks.length === 0,
+    "Zero-match RAG query gracefully returns empty array without throwing"
+  );
+  assert(
+    zeroMatchRag.formattedContext === "No direct empirical evidence found in knowledge base.",
+    "Zero-match RAG query returns clean empirical fallback message"
+  );
+  assert(
+    typeof zeroMatchRag.durationMs === "number" && zeroMatchRag.durationMs >= 0,
+    "Zero-match RAG query records valid duration in ms"
+  );
 }
 
 // 4. TEST TRANSPARENCY REPORT & TREND DATA GENERATION

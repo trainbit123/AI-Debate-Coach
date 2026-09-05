@@ -330,6 +330,7 @@ export default function MicRecorder({
                 stopRecording();
                 setMode("voice");
               }}
+              aria-label="Switch to voice input mode"
               className={cn(
                 "flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs font-semibold transition-colors",
                 mode === "voice"
@@ -346,6 +347,7 @@ export default function MicRecorder({
                 stopRecording();
                 setMode("keyboard");
               }}
+              aria-label="Switch to keyboard typing mode"
               className={cn(
                 "flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs font-semibold transition-colors",
                 mode === "keyboard"
@@ -386,6 +388,7 @@ export default function MicRecorder({
           <button
             type="button"
             onClick={cancelAutoSubmit}
+            aria-label="Cancel automatic submission and continue speaking"
             className="rounded-lg bg-slate-800 px-2.5 py-1 text-[11px] font-bold text-white hover:bg-slate-700"
           >
             Cancel / Keep Speaking
@@ -423,6 +426,7 @@ export default function MicRecorder({
                   type="button"
                   onClick={toggleRecording}
                   disabled={disabled || isProcessing}
+                  aria-label={isRecording ? "Stop voice recording" : "Start speaking argument with voice"}
                   className={cn(
                     "relative flex h-20 w-20 items-center justify-center rounded-full shadow-2xl transition-all duration-300 cursor-pointer",
                     isRecording
@@ -487,6 +491,7 @@ export default function MicRecorder({
                     <button
                       type="button"
                       onClick={() => setIsEditing(!isEditing)}
+                      aria-label={isEditing ? "Done editing transcript text" : "Edit transcript text"}
                       className="flex items-center gap-1 text-slate-400 hover:text-blue-400 transition-colors"
                     >
                       <Edit3 className="h-3.5 w-3.5" />
@@ -501,6 +506,7 @@ export default function MicRecorder({
                   value={manualText}
                   onChange={(e) => setManualText(e.target.value)}
                   placeholder="Edit or refine your argument text here..."
+                  aria-label="Edit argument text"
                   rows={4}
                   className="w-full rounded-lg bg-slate-900 border border-blue-500/40 p-3 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
@@ -524,6 +530,7 @@ export default function MicRecorder({
               value={manualText}
               onChange={(e) => setManualText(e.target.value)}
               placeholder="Present your argument, cite your evidence, and counter the opponent's thesis..."
+              aria-label="Type your debate argument"
               rows={5}
               disabled={disabled || isProcessing}
               className="w-full rounded-xl bg-slate-950/80 border border-slate-800 p-4 text-sm text-slate-100 placeholder-slate-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 disabled:opacity-50"
@@ -560,6 +567,7 @@ export default function MicRecorder({
                 type="button"
                 onClick={handleToggleReadBack}
                 disabled={isProcessing}
+                aria-label={isReadingBack ? "Pause reading argument aloud" : "Read argument aloud with AI voice"}
                 className={cn(
                   "inline-flex items-center gap-1.5 rounded-xl px-3.5 py-2 text-xs font-semibold border transition-all cursor-pointer",
                   isReadingBack
@@ -587,6 +595,7 @@ export default function MicRecorder({
                 type="button"
                 onClick={handleReset}
                 disabled={isProcessing}
+                aria-label="Reset and clear current argument"
                 className="inline-flex items-center gap-1.5 rounded-xl border border-slate-800 px-3.5 py-2 text-xs font-semibold text-slate-400 hover:bg-slate-800 hover:text-white transition-colors"
               >
                 <RefreshCw className="h-3.5 w-3.5" />
@@ -599,6 +608,7 @@ export default function MicRecorder({
             type="button"
             onClick={handleSubmit}
             disabled={!currentText || isProcessing || disabled || isRecording}
+            aria-label={isProcessing ? "Processing argument submission" : `Submit round ${roundNumber} argument`}
             className={cn(
               "inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold text-white shadow-lg transition-all duration-200",
               currentText && !isProcessing && !isRecording

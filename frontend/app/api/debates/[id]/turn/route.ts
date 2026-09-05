@@ -36,9 +36,17 @@ export async function POST(
 
     saveDebate(updatedSession);
 
+    const hasGroq = Boolean(process.env.GROQ_API_KEY?.trim());
+    const hasGemini = Boolean(
+      process.env.GEMINI_API_KEY?.trim() || process.env.GOOGLE_API_KEY?.trim()
+    );
+    const hasOpenAI = Boolean(process.env.OPENAI_API_KEY?.trim());
+    const isOffline = !(hasGroq || hasGemini || hasOpenAI);
+
     return NextResponse.json({
       session: updatedSession,
       turnResult,
+      isOffline,
     });
   } catch (err: any) {
     console.error("Error processing debate turn:", err);

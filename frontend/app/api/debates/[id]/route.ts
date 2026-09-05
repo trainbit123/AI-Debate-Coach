@@ -1,6 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { deleteDebate, getDebateById } from "@/database/db";
 
+function isOfflineMode(): boolean {
+  const hasGroq = Boolean(process.env.GROQ_API_KEY?.trim());
+  const hasGemini = Boolean(
+    process.env.GEMINI_API_KEY?.trim() || process.env.GOOGLE_API_KEY?.trim()
+  );
+  const hasOpenAI = Boolean(process.env.OPENAI_API_KEY?.trim());
+  return !(hasGroq || hasGemini || hasOpenAI);
+}
+
 export async function GET(
   _req: NextRequest,
   { params }: { params: { id: string } }
@@ -10,7 +19,10 @@ export async function GET(
     if (!session) {
       return NextResponse.json({ error: "Debate session not found" }, { status: 404 });
     }
-    return NextResponse.json({ session });
+    return NextResponse.json({
+      session,
+      isOffline: isOfflineMode(),
+    });
   } catch (err: any) {
     console.error("Error fetching debate session:", err);
     return NextResponse.json(

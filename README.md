@@ -6,7 +6,49 @@ DebateAI is a full-stack, chatbot-first AI Debate Coach powered by **Retrieval-A
 
 ---
 
-## 💡 The Problem
+## 🎬 Demo & Visual Walkthrough
+
+> 🌐 **Live Deployment**: [https://debate-ai-coach.vercel.app](https://debate-ai-coach.vercel.app) *(Ready for instant Vercel deployment)*
+
+### Screen Recording
+![DebateAI Interactive Walkthrough GIF](./frontend/docs/assets/demo_walkthrough.gif)
+*Watch DebateAI spar in real-time: oral argument transcription, multi-factor RAG grounding, and instant Toulmin coaching.*
+
+### Key Interface Screenshots
+| 🎙️ 1. Live Debate Arena | 📚 2. RAG Evidence Card | ⚖️ 3. Adjudicator Scorecard |
+| :---: | :---: | :---: |
+| ![Debate Arena Interface](./frontend/docs/assets/arena_screenshot.png) | ![RAG Evidence Card](./frontend/docs/assets/rag_card_screenshot.png) | ![Scorecard & Ballot](./frontend/docs/assets/scorecard_screenshot.png) |
+| *Split arena with voice/text input & opposite AI stance* | *Verified citations, match reasons & empirical sources* | *Mathematical 5-metric breakdown & performance trajectory* |
+
+---
+
+## 📑 Table of Contents
+
+- [🎬 Demo & Visual Walkthrough](#-demo--visual-walkthrough)
+- [💡 The Problem](#-the-problem)
+- [🚀 The Solution](#-the-solution)
+- [📚 Deep-Dive Documentation](#-deep-dive-documentation)
+  - [REST API Reference](frontend/docs/API.md)
+  - [System Architecture](frontend/docs/ARCHITECTURE.md)
+  - [Local Setup & Execution Guide](frontend/docs/SETUP.md)
+- [🏗️ Architecture & Data Flow](#️-architecture--data-flow)
+- [📂 Project Structure](#-project-structure-separation-of-data--application-logic)
+  - [💡 Note: Why `backend/` and `frontend/` Both Have `services/`](#-why-backend-and-frontend-both-have-services)
+- [🛠️ Technologies Used](#️-technologies-actually-used)
+- [🔍 How the RAG Pipeline Works](#-how-the-rag-pipeline-works)
+- [🔑 Environment Variables](#-environment-variables)
+- [💻 Local Development](#-local-development)
+  - [Automated Test Suite (`npm test`)](#4-automated-deterministic-test-suite)
+- [⚡ Vercel Deployment Guide](#-vercel-deployment-guide)
+
+---
+
+## 📚 Deep-Dive Documentation
+
+For detailed technical references, inspect the dedicated project guides:
+* 📄 [**REST API Documentation**](frontend/docs/API.md) — Comprehensive request/response contracts for all endpoints.
+* 🏛️ [**System Architecture**](frontend/docs/ARCHITECTURE.md) — Subsystem designs, state machines, and data flow.
+* 🚀 [**Local Setup & Execution Guide**](frontend/docs/SETUP.md) — Step-by-step instructions for local development in VS Code.
 
 Competitive debating and oral advocacy develop critical thinking, but students face severe barriers:
 1. **Lack of Sparring Partners**: Finding a skilled partner who can debate on-demand across varied motions is difficult.
@@ -129,6 +171,21 @@ hackathonreact/
 ├── package.json                      # Root monorepo workspace orchestrator
 └── README.md                         # Complete project documentation
 ```
+
+### 💡 Why `backend/` and `frontend/` Both Have `services/`
+
+The repository implements a production **dual-architecture pattern** designed to support two distinct deployment targets without code compromise:
+
+1. **`frontend/services/` (Serverless Edge Next.js Deployment)**:
+   - Co-located with the Next.js 14 App Router API route handlers (`frontend/app/api/debates/*`).
+   - Powers zero-cold-start Vercel serverless edge functions with `/tmp` safe file persistence.
+   - Ensures self-contained Vercel deployment where the Next.js frontend and its API handlers run together seamlessly.
+
+2. **`backend/services/` (Standalone Express REST Microservice)**:
+   - Powers the dedicated Node.js/Express server (`backend/server.ts` on port 5000).
+   - Provides a standalone headless REST backend for Docker containers, local offline microservices, or alternative client frontends without requiring the Next.js runtime.
+
+Both service implementations share identical TypeScript interfaces, RAG ranking semantics, and deterministic scoring formulas.
 
 ---
 

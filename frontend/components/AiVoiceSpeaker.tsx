@@ -160,6 +160,7 @@ export default function AiVoiceSpeaker({
           <button
             type="button"
             onClick={handleToggleSpeak}
+            aria-label={isSpeaking ? "Pause AI speech" : hasPlayed ? "Replay AI counterargument aloud" : "Read AI counterargument aloud"}
             className={cn(
               "flex items-center gap-1.5 rounded-xl px-4 py-2 text-xs font-bold shadow-md transition-all duration-200 cursor-pointer",
               isSpeaking
@@ -185,6 +186,7 @@ export default function AiVoiceSpeaker({
               type="button"
               onClick={handleStop}
               title="Stop speech"
+              aria-label="Stop AI speech playback"
               className="rounded-xl border border-slate-800 bg-slate-900/80 p-2 text-slate-400 hover:bg-slate-800 hover:text-white transition-colors"
             >
               <VolumeX className="h-4 w-4" />
@@ -195,6 +197,7 @@ export default function AiVoiceSpeaker({
             type="button"
             onClick={cycleSpeed}
             title="Adjust voice speed"
+            aria-label={`Adjust voice speed, currently ${speechRate}x`}
             className="rounded-xl border border-slate-800 bg-slate-900/80 px-2.5 py-2 text-xs font-semibold text-slate-300 hover:bg-slate-800 hover:text-white transition-colors"
           >
             {speechRate}x

@@ -18,6 +18,7 @@ import {
   HelpCircle,
   Clock,
   History,
+  Cpu,
 } from "lucide-react";
 import { DebateSession, DetectedFallacy, Position } from "@/lib/types/debate";
 import AiVoiceSpeaker from "@/components/AiVoiceSpeaker";
@@ -36,6 +37,8 @@ export default function LiveDebatePage() {
   const [session, setSession] = useState<DebateSession | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [turnError, setTurnError] = useState<{ title: string; message: string } | null>(null);
+  const [isOffline, setIsOffline] = useState(false);
   const [isProcessingTurn, setIsProcessingTurn] = useState(false);
   const [isConcluding, setIsConcluding] = useState(false);
   const [viewingRound, setViewingRound] = useState<number>(1);
@@ -71,6 +74,9 @@ export default function LiveDebatePage() {
       }
       const data = await res.json();
       setSession(data.session);
+      if (typeof data.isOffline === "boolean") {
+        setIsOffline(data.isOffline);
+      }
       setViewingRound(data.session.currentRound);
     } catch (err: any) {
       console.error("Fetch session error:", err);
@@ -90,23 +96,45 @@ export default function LiveDebatePage() {
   const handleSubmitArgument = async (argumentText: string) => {
     if (!session || isProcessingTurn) return;
 
+    // Validate empty or invalid argument submission (< 5 characters)
+    const trimmed = (argumentText || "").trim();
+    if (trimmed.length < 5) {
+      setTurnError({
+        title: "Substantive Argument Required",
+        message: "Your argument is too short or empty. Please formulate a clear point of at least 5 characters to debate effectively.",
+      });
+      return;
+    }
+
     setIsProcessingTurn(true);
-    setError(null);
+    setTurnError(null);
+
+    // 25-second AbortController timeout
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => {
+      controller.abort();
+    }, 25000);
 
     try {
       const res = await fetch(`/api/debates/${debateId}/turn`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userArgument: argumentText }),
+        body: JSON.stringify({ userArgument: trimmed }),
+        signal: controller.signal,
       });
 
+      clearTimeout(timeoutId);
+
       if (!res.ok) {
-        const errData = await res.json();
-        throw new Error(errData.error || "Turn processing failed.");
+        const errData = await res.json().catch(() => ({}));
+        throw new Error(errData.error || `Turn processing failed with status ${res.status}`);
       }
 
       const data = await res.json();
       setSession(data.session);
+      if (typeof data.isOffline === "boolean") {
+        setIsOffline(data.isOffline);
+      }
       setViewingRound(data.session.currentRound);
 
       // If finished, redirect to final results
@@ -114,8 +142,19 @@ export default function LiveDebatePage() {
         router.push(`/results/${session.id}`);
       }
     } catch (err: any) {
+      clearTimeout(timeoutId);
       console.error("Turn submission error:", err);
-      setError(err.message || "Failed to process argument.");
+      if (err.name === "AbortError") {
+        setTurnError({
+          title: "LLM Response Timeout",
+          message: "The AI debater took longer than 25 seconds to respond. Your argument was preserved. Please try submitting again or check your network connection.",
+        });
+      } else {
+        setTurnError({
+          title: "Argument Processing Error",
+          message: err.message || "Failed to process argument. Please try again.",
+        });
+      }
     } finally {
       setIsProcessingTurn(false);
     }
@@ -178,6 +217,15 @@ export default function LiveDebatePage() {
               <span className="rounded-full bg-slate-800 px-2.5 py-1 text-xs font-semibold text-slate-400 capitalize">
                 {session.difficulty} level
               </span>
+              {isOffline && (
+                <span
+                  className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/15 px-2.5 py-1 text-xs font-semibold text-amber-300 ring-1 ring-amber-500/30"
+                  title="No cloud LLM API key detected. Running with deterministic Oxford heuristic debater."
+                >
+                  <Cpu className="h-3 w-3 text-amber-400" />
+                  <span>Running in offline heuristic mode</span>
+                </span>
+              )}
               <span className="text-xs text-slate-500">
                 Match ID: {session.id.slice(0, 14)}
               </span>
@@ -188,7 +236,7 @@ export default function LiveDebatePage() {
           </div>
 
           {/* Stances comparison */}
-          <div className="flex items-center gap-3 self-start lg:self-center">
+          <div className="flex flex-wrap items-center gap-3 self-start lg:self-center">
             {/* User */}
             <div className="flex items-center gap-2 rounded-2xl bg-slate-950/80 px-3.5 py-2 border border-slate-800">
               <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-blue-600/20 text-blue-400 font-bold text-xs">
@@ -256,6 +304,27 @@ export default function LiveDebatePage() {
           />
         </div>
       </div>
+
+      {/* Turn Submission & Timeout Error Banner */}
+      {turnError && (
+        <div className="rounded-2xl border border-rose-500/40 bg-rose-950/40 p-4 text-xs text-rose-200 flex items-start justify-between gap-3 shadow-lg shadow-rose-950/50 animate-in fade-in">
+          <div className="flex items-start gap-2.5">
+            <AlertTriangle className="h-4 w-4 text-rose-400 shrink-0 mt-0.5" />
+            <div>
+              <p className="font-bold text-white text-sm">{turnError.title}</p>
+              <p className="mt-1 text-rose-200/90 leading-relaxed">{turnError.message}</p>
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={() => setTurnError(null)}
+            className="text-rose-400 hover:text-white text-xs font-bold px-2.5 py-1 rounded-lg bg-rose-900/40 hover:bg-rose-900 transition-colors shrink-0 cursor-pointer"
+            aria-label="Dismiss error notification"
+          >
+            Dismiss
+          </button>
+        </div>
+      )}
 
       {/* Main Debate Grid: Split Arena */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">

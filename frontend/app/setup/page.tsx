@@ -345,7 +345,7 @@ export default function SetupPage() {
             </div>
 
             {/* Custom Rounds Input */}
-            <div className="mt-3 flex items-center gap-2">
+            <div className="mt-3 flex flex-wrap items-center gap-2">
               <span className="text-xs text-slate-400 shrink-0">Or custom rounds:</span>
               <input
                 type="number"
@@ -380,7 +380,7 @@ export default function SetupPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 px-10 py-4 text-base font-bold text-white shadow-xl shadow-blue-600/30 hover:from-blue-500 hover:to-indigo-500 hover:scale-105 active:scale-95 transition-all disabled:opacity-50"
+            className="inline-flex items-center justify-center w-full sm:w-auto gap-3 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 px-8 sm:px-10 py-3.5 sm:py-4 text-sm sm:text-base font-bold text-white shadow-xl shadow-blue-600/30 hover:from-blue-500 hover:to-indigo-500 hover:scale-105 active:scale-95 transition-all disabled:opacity-50"
           >
             {isSubmitting ? (
               <>
