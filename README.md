@@ -64,40 +64,39 @@ Debate against an uncompromising collegiate Oxford-level AI opponent, speak your
 
 ---
 
-## Quick Start
-
-### 🐍 Python Streamlit Application (Recommended for Python/Streamlit Workshop)
-
-```bash
-# 1. Install Python dependencies
-pip install -r requirements.txt
-
-# 2. Run the Streamlit AI Debate Coach App
-streamlit run app.py
-```
-*Or simply double-click `run_app.bat` on Windows!*
-
-The app will open automatically at [**http://localhost:8501**](http://localhost:8501).
-
----
-
-### 🌐 Next.js Web Application
+## Quick Start (100% React & TypeScript / 0% Python)
 
 ```bash
 # 1. Install Node dependencies
 npm install
 
-# 2. Run Production Server
-npm start
+# 2. Run Development Server
+npm run dev
 ```
-The web app is available at [**http://localhost:3000**](http://localhost:3000).
+
+The application will start immediately at [**http://localhost:3000**](http://localhost:3000).
 
 ---
 
-## Python Architecture (`app.py`)
-- `app.py`: Streamlit UI with modern dark arena theme, `st.chat_message`, `st.chat_input`, and interactive metrics.
-- `debate_engine.py`: Session manager handling rounds, stance enforcement, and round orchestration.
-- `scoring_service.py`: 4-metric scoring engine (Clarity, Logic, Evidence, Persuasion).
-- `fallacy_detector.py`: Scans arguments for 9 classical logical fallacies with remedial coaching tips.
-- `llm_service.py`: Ultra-fast Groq (`llama-3.3-70b` / `groq/compound-mini`) & Gemini integration with a zero-key heuristic fallback engine.
+## Production Build & Start
+
+```bash
+# Build the production bundle
+npm run build
+
+# Start the production server
+npm start
+```
+
+---
+
+## Technical Architecture (0% Python / 100% React & TypeScript)
+
+- **Frontend**: Next.js 14 App Router, React 18, Tailwind CSS, Lucide Icons, Canvas Confetti.
+- **Audio & Voice**: Native Web Speech API (`SpeechRecognition` & `SpeechSynthesis`) with real-time waveform visualization.
+- **Debate Engine** (`services/debateEngine.ts`): Rule-enforcing debate adjudicator with strict stance locking and difficulty curves.
+- **Fallacy Scanner** (`services/fallacyDetector.ts`): Real-time analysis of 9 classical cognitive fallacies with remedial coaching.
+- **Scoring System** (`services/scoringService.ts`): 5-factor mathematical rubric (Logic, Evidence, Relevance, Clarity, Rebuttal) with final judicial verdicts.
+- **AI Service** (`services/llmService.ts`): Integration with Groq (`llama-3.3-70b`), Google Gemini, and OpenAI with a zero-key deterministic fallback debater.
+- **Data Layer** (`database/db.ts`): File-backed JSON persistence (`database/storage.json`) with zero external database dependencies.
 
