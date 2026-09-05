@@ -3,7 +3,8 @@ import path from "path";
 import { DebateSession, FallacyType, UserStats } from "@/lib/types/debate";
 import { INITIAL_SEED_DEBATES } from "./seed";
 
-const DB_DIR = path.join(process.cwd(), "database");
+const isVercel = Boolean(process.env.VERCEL);
+const DB_DIR = isVercel ? "/tmp" : path.join(process.cwd(), "database");
 const DB_FILE = path.join(DB_DIR, "storage.json");
 
 interface StorageData {
