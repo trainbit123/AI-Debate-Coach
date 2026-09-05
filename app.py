@@ -8,10 +8,27 @@ import streamlit as st
 import time
 import json
 import base64
+import io
+from streamlit_mic_recorder import speech_to_text
 from debate_engine import DebateSession, PRESET_MOTIONS
 import llm_service
 import fallacy_detector
 import scoring_service
+
+@st.cache_data(show_spinner=False)
+def generate_speech_audio(text: str) -> bytes:
+    """Generates speech audio bytes using gTTS for spoken rebuttals."""
+    try:
+        from gtts import gTTS
+        clean_text = text.replace("**", "").replace('"', '').strip()
+        tts = gTTS(text=clean_text[:400], lang="en", tld="com")
+        fp = io.BytesIO()
+        tts.write_to_fp(fp)
+        fp.seek(0)
+        return fp.read()
+    except Exception:
+        return b""
+
 
 # Page Configuration
 st.set_page_config(
@@ -322,7 +339,12 @@ if st.session_state.show_final_report and st.session_state.final_report_data:
 with st.chat_message("assistant", avatar="🤖"):
     st.markdown(f"**AI Debate Coach ({session.ai_position}):**")
     st.write(session.ai_opening_statement)
-    st.caption("Floor is open for Round 1. State your primary claim and evidence!")
+    
+    # Audio Playback
+    opening_audio = generate_speech_audio(session.ai_opening_statement)
+    if opening_audio:
+        st.audio(opening_audio, format="audio/mp3")
+    st.caption("Floor is open for Round 1. Choose Option 1 (Type) or Option 2 (Speak) below!")
 
 # 2. Render all past rounds
 for r in session.rounds:
@@ -360,6 +382,11 @@ for r in session.rounds:
         st.markdown(f"**AI Debate Coach Counterargument (Round {r['round_number']}):**")
         st.write(r["ai_counterargument"])
 
+        # Audio Playback for AI Counterargument
+        counter_audio = generate_speech_audio(r["ai_counterargument"])
+        if counter_audio:
+            st.audio(counter_audio, format="audio/mp3")
+
         # Follow-up Question
         if r.get("ai_follow_up"):
             st.markdown(f"""
@@ -370,22 +397,108 @@ for r in session.rounds:
 
 
 # ----------------------------------------------------
-# USER CHAT INPUT & TURN PROCESSING
+# USER ARGUMENT STATION: TWO OPTIONS (TYPE OR SPEAK)
 # ----------------------------------------------------
 if not session.is_complete:
-    user_input = st.chat_input(
-        f"Round {session.current_round}: Type your argument or answer the coach's challenge..."
-    )
+    st.markdown("---")
+    st.markdown(f"### 🎯 Round {session.current_round} — Deliver Your Argument")
+    st.caption("You have two options: type your argument, or speak using your microphone (which transcribes into the field automatically):")
 
-    if user_input:
-        with st.spinner("AI Coach is analyzing your argument, scanning for fallacies, and preparing counterargument..."):
-            turn_result = session.process_turn(user_input.strip())
-            
-            # If debate ended by reaching max rounds, auto-conclude
-            if session.is_complete:
-                st.session_state.final_report_data = session.conclude_debate()
-                st.session_state.show_final_report = True
+    # Draft key stored across interactions for this round
+    draft_key = f"arg_draft_round_{session.current_round}"
+    if draft_key not in st.session_state:
+        st.session_state[draft_key] = ""
 
-            st.rerun()
+    # Two option tabs
+    tab_type, tab_voice = st.tabs([
+        "✍️ Option 1: Type Your Argument",
+        "🎙️ Option 2: Speak Your Argument (Voice to Text)"
+    ])
+
+    # OPTION 1: TYPE ARGUMENT
+    with tab_type:
+        st.markdown("**Option 1: Type your argument directly:**")
+        typed_text = st.text_area(
+            label="Type your argument:",
+            label_visibility="collapsed",
+            value=st.session_state[draft_key],
+            height=130,
+            placeholder=f"Round {session.current_round}: Type your argument, cite your reasons/evidence, and counter the AI coach's stance...",
+            key=f"input_typed_{session.current_round}"
+        )
+        if typed_text != st.session_state[draft_key]:
+            st.session_state[draft_key] = typed_text
+
+        col_t1, col_t2 = st.columns([3, 1])
+        with col_t1:
+            words = len(typed_text.split()) if typed_text else 0
+            st.caption(f"📝 {words} words")
+        with col_t2:
+            if st.button("🚀 Submit Argument", type="primary", use_container_width=True, key=f"submit_type_btn_{session.current_round}"):
+                if not typed_text.strip():
+                    st.warning("⚠️ Please enter your argument before submitting!")
+                else:
+                    with st.spinner("AI Coach is analyzing your argument, scanning for fallacies, and preparing counterargument..."):
+                        turn_result = session.process_turn(typed_text.strip())
+                        st.session_state[draft_key] = ""
+                        if session.is_complete:
+                            st.session_state.final_report_data = session.conclude_debate()
+                            st.session_state.show_final_report = True
+                        st.rerun()
+
+    # OPTION 2: SPEAK ARGUMENT (VOICE)
+    with tab_voice:
+        st.markdown("**Option 2: Speak your argument into your microphone:**")
+        st.info("🎙️ Click the microphone button below to record your voice. Our app will transcribe it and place it directly into the input field below so you can review, edit, or submit it!")
+
+        col_mic, col_info = st.columns([1, 2])
+        with col_mic:
+            spoken_text = speech_to_text(
+                language="en",
+                start_prompt="🎙️ Click to Speak Argument",
+                stop_prompt="⏹️ Stop Recording",
+                just_once=True,
+                use_container_width=True,
+                key=f"stt_btn_{session.current_round}"
+            )
+            if spoken_text:
+                st.session_state[draft_key] = spoken_text
+                st.rerun()
+
+        with col_info:
+            if st.session_state[draft_key]:
+                st.success("✅ Voice transcribed & placed on input field! Review or edit below:")
+            else:
+                st.caption("Click the button, speak clearly into your mic, then click stop.")
+
+        # Input field populated automatically with recorded speech
+        voice_text = st.text_area(
+            label="Your Spoken Argument (placed here automatically, edit anytime):",
+            value=st.session_state[draft_key],
+            height=130,
+            placeholder="Your spoken words will appear here automatically. You can edit the text before submitting...",
+            key=f"input_voice_{session.current_round}"
+        )
+        if voice_text != st.session_state[draft_key]:
+            st.session_state[draft_key] = voice_text
+
+        col_v1, col_v2 = st.columns([3, 1])
+        with col_v1:
+            if st.button("🚀 Submit Spoken Argument", type="primary", use_container_width=True, key=f"submit_voice_btn_{session.current_round}"):
+                if not voice_text.strip():
+                    st.warning("⚠️ Please record or type an argument before submitting!")
+                else:
+                    with st.spinner("AI Coach is analyzing your argument, scanning for fallacies, and preparing counterargument..."):
+                        turn_result = session.process_turn(voice_text.strip())
+                        st.session_state[draft_key] = ""
+                        if session.is_complete:
+                            st.session_state.final_report_data = session.conclude_debate()
+                            st.session_state.show_final_report = True
+                        st.rerun()
+        with col_v2:
+            if st.button("🗑️ Clear", use_container_width=True, key=f"clear_voice_btn_{session.current_round}"):
+                st.session_state[draft_key] = ""
+                st.rerun()
+
 else:
     st.info("Debate is complete. Click 'Conclude Debate & View Report' in the sidebar or start a new match!")
