@@ -19,9 +19,10 @@ import {
   HelpCircle,
   Brain,
 } from "lucide-react";
-import { DebateSession, FinalReport } from "@/lib/types/debate";
+import { DebateSession, DetectedFallacy, FinalReport } from "@/lib/types/debate";
 import VerdictCard from "@/components/VerdictCard";
 import FallacyBadge from "@/components/FallacyBadge";
+import ScoreTransparencyReport from "@/components/ScoreTransparencyReport";
 import { cn } from "@/lib/utils";
 
 export default function ResultsPage() {
@@ -188,6 +189,9 @@ export default function ResultsPage() {
         </div>
       </div>
 
+      {/* Why You Got This Score - Interactive Transparent Audit Ballot */}
+      <ScoreTransparencyReport verdict={verdict} roundsCount={session.rounds.length} />
+
       {/* Strongest vs Weakest Arguments */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="rounded-2xl border border-emerald-500/30 bg-emerald-950/15 p-5">
@@ -237,7 +241,7 @@ export default function ResultsPage() {
 
         {verdict.detectedFallacyList && verdict.detectedFallacyList.length > 0 ? (
           <div className="mt-6 space-y-3">
-            {verdict.detectedFallacyList.map((f, idx) => (
+            {verdict.detectedFallacyList.map((f: DetectedFallacy, idx: number) => (
               <div
                 key={idx}
                 className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-2xl border border-amber-500/20 bg-amber-950/10 p-4"
@@ -277,21 +281,51 @@ export default function ResultsPage() {
         <div className="mt-6 space-y-6">
           {session.rounds.map((round) => (
             <div key={round.roundNumber} className="rounded-2xl border border-slate-800 bg-slate-950/40 p-5 space-y-4">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-2">
                 <span className="text-xs font-bold text-blue-400 uppercase tracking-wider">
-                  Round {round.roundNumber}
+                  Round {round.roundNumber} of {session.rounds.length}
                 </span>
-                <span className="text-xs font-semibold text-slate-400">
-                  Score: {round.score.overall}/100
+                <div className="flex items-center gap-2">
+                  <span className="rounded-md bg-blue-500/10 border border-blue-500/30 px-2 py-0.5 text-xs font-bold text-blue-400">
+                    Round Score: {round.score.overall}/100
+                  </span>
+                </div>
+              </div>
+
+              {/* Sub-Dimension Score Pills */}
+              <div className="flex flex-wrap gap-1.5 text-[11px]">
+                <span className="rounded-lg bg-slate-900 border border-slate-800 px-2 py-0.5 text-slate-300 font-mono">
+                  Logic: <strong className="text-blue-400">{round.score.logic}</strong>
+                </span>
+                <span className="rounded-lg bg-slate-900 border border-slate-800 px-2 py-0.5 text-slate-300 font-mono">
+                  Evidence: <strong className="text-emerald-400">{round.score.evidence}</strong>
+                </span>
+                <span className="rounded-lg bg-slate-900 border border-slate-800 px-2 py-0.5 text-slate-300 font-mono">
+                  Relevance: <strong className="text-purple-400">{round.score.relevance}</strong>
+                </span>
+                <span className="rounded-lg bg-slate-900 border border-slate-800 px-2 py-0.5 text-slate-300 font-mono">
+                  Clarity: <strong className="text-amber-400">{round.score.clarity}</strong>
+                </span>
+                <span className="rounded-lg bg-slate-900 border border-slate-800 px-2 py-0.5 text-slate-300 font-mono">
+                  Rebuttal: <strong className="text-cyan-400">{round.score.counterargumentHandling}</strong>
                 </span>
               </div>
 
               {/* User transcript */}
               <div className="rounded-xl bg-slate-900/80 p-3.5 border border-slate-800">
-                <span className="text-[11px] font-bold text-emerald-400 uppercase tracking-wider">
-                  Your Argument:
-                </span>
-                <p className="mt-1 text-xs leading-relaxed text-slate-200">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-[11px] font-bold text-emerald-400 uppercase tracking-wider">
+                    Your Argument:
+                  </span>
+                  {round.fallacies && round.fallacies.length > 0 && (
+                    <div className="flex flex-wrap gap-1">
+                      {round.fallacies.map((f: DetectedFallacy, fIdx: number) => (
+                        <FallacyBadge key={fIdx} fallacy={f} compact={true} />
+                      ))}
+                    </div>
+                  )}
+                </div>
+                <p className="mt-1.5 text-xs leading-relaxed text-slate-200">
                   {round.userArgument}
                 </p>
               </div>
@@ -305,6 +339,17 @@ export default function ResultsPage() {
                   {round.aiCounterargument}
                 </p>
               </div>
+
+              {/* Coach Feedback for Round */}
+              {round.score.coachFeedback && (
+                <div className="rounded-xl bg-blue-950/20 border border-blue-500/20 p-3 text-[11px] text-blue-200/90 flex items-start gap-2">
+                  <Sparkles className="h-3.5 w-3.5 text-blue-400 shrink-0 mt-0.5" />
+                  <div>
+                    <span className="font-bold text-blue-300">Adjudicator Round Note: </span>
+                    <span>{round.score.coachFeedback}</span>
+                  </div>
+                </div>
+              )}
             </div>
           ))}
         </div>

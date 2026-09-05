@@ -9,7 +9,7 @@ import {
   CounterargumentItem,
 } from "@/lib/types/debate";
 import { detectFallaciesHeuristic } from "./fallacyDetector";
-import { calculateArgumentScore } from "./scoringService";
+import { calculateArgumentScore, generateTransparencyReport } from "./scoringService";
 import { retrieveKnowledge } from "./rag/ragService";
 import { generateResponse, generateJSON } from "./llm/llmService";
 import {
@@ -33,6 +33,7 @@ export interface AIAnalysisOutput {
     rebuttal: number;
     overall: number;
   };
+  dimensionDetails?: ArgumentScore["dimensionDetails"];
   fallacies: DetectedFallacy[];
   strength: string;
   weakness: string;
@@ -145,6 +146,7 @@ export async function processTurnWithAI(context: TurnContext): Promise<AIAnalysi
       rebuttal: baseScore.counterargumentHandling,
       overall: baseScore.overall,
     },
+    dimensionDetails: baseScore.dimensionDetails,
     fallacies,
     strength: baseScore.strongestPoint,
     weakness: baseScore.weakestPoint,
@@ -418,6 +420,8 @@ export async function generateFinalReport(
   const strongestArgument = rounds.reduce((best, cur) => (cur.score.overall > best.score.overall ? cur : best)).userArgument;
   const weakestArgument = rounds.reduce((worst, cur) => (cur.score.overall < worst.score.overall ? cur : worst)).userArgument;
 
+  const { transparencyReport, trendData } = generateTransparencyReport(rounds, topic);
+
   return {
     overallScore: weightedOverall,
     logicScore: avgLogic,
@@ -434,5 +438,7 @@ export async function generateFinalReport(
     verdictTitle,
     verdictSummary,
     ruling,
+    transparencyReport,
+    trendData,
   };
 }

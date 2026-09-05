@@ -105,6 +105,7 @@ export async function executeRoundTurn(
       strongestPoint: aiResult.strength,
       weakestPoint: aiResult.weakness,
       coachFeedback: aiResult.coach_feedback,
+      dimensionDetails: aiResult.dimensionDetails,
     },
     fallacies: aiResult.fallacies,
     ragContext: aiResult.ragContext,

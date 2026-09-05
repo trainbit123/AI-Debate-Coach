@@ -18,14 +18,16 @@ Competitive debating and oral advocacy develop critical thinking, but students f
 ## 🚀 The Solution
 
 DebateAI solves this with a **RAG-Grounded AI Debate Coach Chatbot**:
-- **Retrieval-Augmented Generation (RAG)**: Ingests a domain knowledge base of empirical research, landmark legislation (e.g. EU AI Act), economic trials (e.g. Alaska PFD, Finland Kela), and debate principles. Before generating any rebuttal, it semantically retrieves relevant evidence chunks and injects them directly into the LLM system prompt.
-- **Visual RAG Citations**: The user can expand a **"Grounded by RAG Knowledge"** card on every AI rebuttal to inspect the exact empirical evidence, source titles, and relevance match percentages that informed the AI's counter-point.
+- **Retrieval-Augmented Generation (RAG)**: Ingests a domain knowledge base of empirical research, landmark legislation (e.g. EU AI Act), economic trials (e.g. Alaska PFD, Finland Kela), and debate principles. Uses multi-factor retrieval (token, bigram phrase, topic affinity, keyword metadata) with deduplication penalties to ensure document diversity.
+- **Visual RAG Citations & Proof Cards**: The user can expand a **"Grounded by Verified RAG Evidence"** card on every AI rebuttal to inspect the exact empirical evidence, source titles, verified citations, and reason for retrieval.
 - **Generative AI Coaching Suite**:
   - 🤖 **AI Debate Partner**: Maintains strict opposite stance, adheres to collegiate difficulty curves, and refuses to flip positions.
   - ⚡ **Argument Improver**: Rewrites user arguments into structured collegiate claims using the Toulmin model (Claim, Warrant, Grounds, Impact).
   - ❓ **Socratic Cross-Examination**: Formulates targeted questions that probe unstated assumptions.
   - 🛡️ **Counterargument Generator**: Previews 3 strategic lines of attack the opponent could take.
-  - ⚖️ **5-Metric Judicial Scoring & Summary**: Computes a 0–100 score across Logic (25%), Evidence (20%), Relevance (20%), Clarity (15%), and Rebuttal (20%) alongside an executive debate brief.
+  - ⚖️ **5-Metric Judicial Scoring & Transparency Ballot**: Strictly owned in TypeScript with mathematical weighting: `Math.round(Logic * 0.25 + Evidence * 0.20 + Relevance * 0.20 + Clarity * 0.15 + Rebuttal * 0.20)`, all clamped to `[0, 100]`.
+  - 🔍 **"Why You Got This Score" Audit**: Adjudicator breakdown displaying observable speech markers, evidence citations, match performance trajectory (+/- delta), and actionable remedies.
+  - 🚨 **Fallacy Detector with Certainty & Justification**: Classifies 9 informal fallacies with confidence ratings, Definite (≥80%) vs. Possible badges, and "Why It Qualifies" explanations.
 - **Optional Voice Mode**: Web Speech API allows oral sparring and spoken AI rebuttals, keeping the core experience firmly focused on conversational debate.
 
 ---
@@ -202,7 +204,13 @@ npm run dev:backend
 ```
 Backend runs on [**http://localhost:5000**](http://localhost:5000).
 
-### 4. Production Build Verification
+### 4. Automated Deterministic Test Suite
+```bash
+npm test
+```
+Executes the comprehensive 39-test verification suite covering mathematical scoring ownership, clamping [0, 100], RAG diversity deduplication, fallacy certainty detection, and transparency reports.
+
+### 5. Production Build Verification
 ```bash
 npm run build
 ```

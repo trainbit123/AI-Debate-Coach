@@ -292,6 +292,48 @@ export async function generateResponse(options: LlmRequestOptions): Promise<LlmR
   };
 }
 
+// Helper to extract JSON from LLM responses even with preamble or markdown fences
+function extractJSONString(text: string): string {
+  const stripped = text
+    .replace(/```(?:json)?/gi, "")
+    .replace(/```/g, "")
+    .trim();
+
+  // Try direct parse first
+  try {
+    JSON.parse(stripped);
+    return stripped;
+  } catch {
+    // Try object boundaries
+    const firstBrace = stripped.indexOf("{");
+    const lastBrace = stripped.lastIndexOf("}");
+    if (firstBrace !== -1 && lastBrace !== -1 && lastBrace > firstBrace) {
+      const candidate = stripped.substring(firstBrace, lastBrace + 1);
+      try {
+        JSON.parse(candidate);
+        return candidate;
+      } catch {
+        // Continue
+      }
+    }
+
+    // Try array boundaries
+    const firstBracket = stripped.indexOf("[");
+    const lastBracket = stripped.lastIndexOf("]");
+    if (firstBracket !== -1 && lastBracket !== -1 && lastBracket > firstBracket) {
+      const candidate = stripped.substring(firstBracket, lastBracket + 1);
+      try {
+        JSON.parse(candidate);
+        return candidate;
+      } catch {
+        // Continue
+      }
+    }
+
+    return stripped;
+  }
+}
+
 // Utility to parse JSON from LLM responses safely
 export async function generateJSON<T>(
   options: LlmRequestOptions,
@@ -299,15 +341,11 @@ export async function generateJSON<T>(
 ): Promise<{ data: T; providerUsed: string; durationMs: number }> {
   try {
     const res = await generateResponse(options);
-    const cleaned = res.text
-      .replace(/```json/gi, "")
-      .replace(/```/g, "")
-      .trim();
-
-    const parsed = JSON.parse(cleaned);
+    const jsonStr = extractJSONString(res.text);
+    const parsed = JSON.parse(jsonStr);
     return { data: parsed as T, providerUsed: res.providerUsed, durationMs: res.durationMs };
   } catch (err) {
-    console.error("Failed to parse JSON from LLM response:", err);
+    console.error("Failed to parse JSON from LLM response, returning fallback:", err);
     return { data: fallbackValue, providerUsed: "Fallback Parser", durationMs: 0 };
   }
 }

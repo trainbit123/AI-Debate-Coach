@@ -19,7 +19,7 @@ import {
   Clock,
   History,
 } from "lucide-react";
-import { DebateSession, Position } from "@/lib/types/debate";
+import { DebateSession, DetectedFallacy, Position } from "@/lib/types/debate";
 import AiVoiceSpeaker from "@/components/AiVoiceSpeaker";
 import MicRecorder from "@/components/MicRecorder";
 import ScoreCard from "@/components/ScoreCard";
@@ -332,7 +332,7 @@ export default function LiveDebatePage() {
                     </span>
                   </div>
                   <div className="flex flex-wrap gap-2">
-                    {latestRound.fallacies.map((f, idx) => (
+                    {latestRound.fallacies.map((f: DetectedFallacy, idx: number) => (
                       <FallacyBadge key={idx} fallacy={f} />
                     ))}
                   </div>

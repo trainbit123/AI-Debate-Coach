@@ -20,6 +20,9 @@ export default function FallacyBadge({ fallacy, compact = false }: FallacyBadgeP
     remedy: fallacy.howToImprove,
   };
 
+  const confidence = fallacy.confidence ?? 85;
+  const isCertain = fallacy.isCertain ?? confidence >= 80;
+
   return (
     <>
       <button
@@ -27,13 +30,30 @@ export default function FallacyBadge({ fallacy, compact = false }: FallacyBadgeP
         onClick={() => setShowModal(true)}
         className={cn(
           "group inline-flex items-center gap-1.5 rounded-full font-medium transition-all duration-200 text-left",
-          compact
-            ? "bg-amber-500/10 px-2.5 py-1 text-xs text-amber-400 ring-1 ring-amber-500/30 hover:bg-amber-500/20"
-            : "bg-amber-500/15 px-3 py-1.5 text-sm text-amber-300 ring-1 ring-amber-500/40 hover:bg-amber-500/25 hover:shadow-lg hover:shadow-amber-500/10"
+          isCertain
+            ? "bg-rose-500/10 text-rose-400 ring-1 ring-rose-500/30 hover:bg-rose-500/20"
+            : "bg-amber-500/10 text-amber-400 ring-1 ring-amber-500/30 hover:bg-amber-500/20",
+          compact ? "px-2.5 py-1 text-xs" : "px-3 py-1.5 text-sm hover:shadow-lg hover:shadow-amber-500/10"
         )}
       >
-        <AlertTriangle className={compact ? "h-3.5 w-3.5 shrink-0 text-amber-400" : "h-4 w-4 shrink-0 text-amber-400"} />
+        <AlertTriangle
+          className={cn(
+            "shrink-0",
+            compact ? "h-3.5 w-3.5" : "h-4 w-4",
+            isCertain ? "text-rose-400" : "text-amber-400"
+          )}
+        />
         <span className="font-semibold">{fallacy.name}</span>
+        <span
+          className={cn(
+            "rounded-full px-1.5 py-0.2 text-[10px] font-mono",
+            isCertain
+              ? "bg-rose-500/20 text-rose-300 border border-rose-500/40"
+              : "bg-amber-500/20 text-amber-300 border border-amber-500/40"
+          )}
+        >
+          {isCertain ? "Definite" : "Possible"} &bull; {confidence}%
+        </span>
         <HelpCircle className="h-3 w-3 opacity-60 group-hover:opacity-100 transition-opacity" />
       </button>
 
@@ -50,13 +70,32 @@ export default function FallacyBadge({ fallacy, compact = false }: FallacyBadgeP
             {/* Header */}
             <div className="flex items-start justify-between gap-4 border-b border-slate-800 pb-4">
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/20 text-amber-400 ring-1 ring-amber-500/40">
+                <div
+                  className={cn(
+                    "flex h-10 w-10 items-center justify-center rounded-xl ring-1",
+                    isCertain
+                      ? "bg-rose-500/20 text-rose-400 ring-rose-500/40"
+                      : "bg-amber-500/20 text-amber-400 ring-amber-500/40"
+                  )}
+                >
                   <AlertTriangle className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white">
-                    Fallacy Detected: <span className="text-amber-400">{fallacy.name}</span>
-                  </h3>
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-lg font-bold text-white">
+                      Fallacy: <span className={isCertain ? "text-rose-400" : "text-amber-400"}>{fallacy.name}</span>
+                    </h3>
+                    <span
+                      className={cn(
+                        "rounded-full px-2 py-0.5 text-[10px] font-bold border uppercase tracking-wider",
+                        isCertain
+                          ? "bg-rose-500/10 text-rose-300 border-rose-500/30"
+                          : "bg-amber-500/10 text-amber-300 border-amber-500/30"
+                      )}
+                    >
+                      {isCertain ? "Definite Fallacy" : "Possible Fallacy"} ({confidence}%)
+                    </span>
+                  </div>
                   <p className="text-xs text-slate-400">Logical Integrity Audit</p>
                 </div>
               </div>
@@ -70,7 +109,7 @@ export default function FallacyBadge({ fallacy, compact = false }: FallacyBadgeP
             </div>
 
             {/* Body */}
-            <div className="mt-4 space-y-4 text-sm">
+            <div className="mt-4 space-y-4 text-sm max-h-[75vh] overflow-y-auto pr-1">
               {/* Snippet */}
               {fallacy.snippet && (
                 <div className="rounded-xl border border-amber-500/20 bg-amber-950/20 p-3.5">
@@ -83,10 +122,22 @@ export default function FallacyBadge({ fallacy, compact = false }: FallacyBadgeP
                 </div>
               )}
 
+              {/* Why It Qualifies */}
+              {fallacy.whyItQualifies && (
+                <div className="rounded-xl border border-slate-700/60 bg-slate-800/40 p-3.5">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-indigo-300">
+                    Why It Qualifies:
+                  </h4>
+                  <p className="mt-1 text-xs text-slate-300 leading-relaxed">
+                    {fallacy.whyItQualifies}
+                  </p>
+                </div>
+              )}
+
               {/* What It Means */}
               <div>
                 <h4 className="font-semibold text-slate-200">What It Means</h4>
-                <p className="mt-1 text-slate-400 leading-relaxed">
+                <p className="mt-1 text-slate-400 leading-relaxed text-xs">
                   {catalogEntry.summary || fallacy.description}
                 </p>
               </div>

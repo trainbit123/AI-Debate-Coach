@@ -3,27 +3,56 @@ import { DetectedFallacy, FallacyType } from "@/lib/types/debate";
 interface FallacyRule {
   type: FallacyType;
   description: string;
+  whyItQualifies: string;
   howToImprove: string;
-  matcher: (text: string) => { detected: boolean; snippet?: string };
+  matcher: (text: string) => {
+    detected: boolean;
+    snippet?: string;
+    confidence?: number;
+    whyItQualifies?: string;
+  };
 }
 
 const FALLACY_RULES: FallacyRule[] = [
   {
     type: "Ad Hominem",
-    description:
-      "Attacking the person instead of addressing their idea.",
+    description: "Attacking the person instead of addressing their idea.",
+    whyItQualifies:
+      "Directly attacks the opponent's intellect, character, or competence rather than evaluating the empirical validity of their argument.",
     howToImprove:
-      "Focus directly on the facts and arguments instead of calling names or criticizing the speaker.",
+      "Focus directly on the facts, causal mechanisms, and warrants instead of personal insults or attacking the speaker.",
     matcher: (text: string) => {
-      const patterns = [
-        /\b(you('re| are)?|they are|opponents? (are|is))\s+(stupid|idiots?|dumb|morons?|clueless|naive|corrupt|evil|greedy|insane|hypocrites?)\b/i,
+      const strongPatterns = [
+        /\b(you('re| are)?|they are|(?:my\s+)?opponents?\s+(?:are|is))\s+(?:an?\s+)?(stupid|idiots?|dumb|morons?|clueless|naive|corrupt|evil|greedy|insane|hypocrites?)\b/i,
         /\b(you don't know what you're talking about|you have no brain|shut up|only a fool would)\b/i,
         /\b(pathetic argument from a pathetic person|biased shill)\b/i,
       ];
-      for (const p of patterns) {
+      for (const p of strongPatterns) {
         const match = text.match(p);
         if (match) {
-          return { detected: true, snippet: match[0] };
+          return {
+            detected: true,
+            snippet: match[0],
+            confidence: 95,
+            whyItQualifies:
+              "Directly insults personal intelligence or character rather than addressing the core debate claim.",
+          };
+        }
+      }
+
+      const moderatePatterns = [
+        /\b(you are obviously biased|anyone who thinks that is delusional|you don't understand basic facts)\b/i,
+      ];
+      for (const p of moderatePatterns) {
+        const match = text.match(p);
+        if (match) {
+          return {
+            detected: true,
+            snippet: match[0],
+            confidence: 80,
+            whyItQualifies:
+              "Dismisses the argument by questioning the speaker's motives or perception rather than testing their evidence.",
+          };
         }
       }
       return { detected: false };
@@ -33,6 +62,8 @@ const FALLACY_RULES: FallacyRule[] = [
     type: "Strawman",
     description:
       "Twisting or exaggerating what the other person said to make it easier to attack.",
+    whyItQualifies:
+      "Distorts, caricatures, or oversimplifies the opposing position to attack an extreme claim the opponent never made.",
     howToImprove:
       "State the other person's actual point fairly before explaining why you disagree with it.",
     matcher: (text: string) => {
@@ -44,7 +75,13 @@ const FALLACY_RULES: FallacyRule[] = [
       for (const p of patterns) {
         const match = text.match(p);
         if (match) {
-          return { detected: true, snippet: match[0] };
+          return {
+            detected: true,
+            snippet: match[0],
+            confidence: 88,
+            whyItQualifies:
+              "Attacks an exaggerated caricature of the opponent's stance instead of their actual position.",
+          };
         }
       }
       return { detected: false };
@@ -54,8 +91,10 @@ const FALLACY_RULES: FallacyRule[] = [
     type: "Hasty Generalization",
     description:
       "Jumping to a huge conclusion from just one or two small examples.",
+    whyItQualifies:
+      "Extrapolates an absolute universal claim from isolated anecdotes or insufficient sample size without empirical justification.",
     howToImprove:
-      "Use words like 'often' or 'studies suggest', and back up your point with real data rather than personal stories.",
+      "Use words like 'often' or 'studies suggest', and back up your point with peer-reviewed data rather than personal stories.",
     matcher: (text: string) => {
       const patterns = [
         /\b(everyone knows that|nobody ever|every single person|all of them always|never in history)\b/i,
@@ -65,7 +104,13 @@ const FALLACY_RULES: FallacyRule[] = [
       for (const p of patterns) {
         const match = text.match(p);
         if (match) {
-          return { detected: true, snippet: match[0] };
+          return {
+            detected: true,
+            snippet: match[0],
+            confidence: 85,
+            whyItQualifies:
+              "Makes an unqualified universal generalization based on anecdotal or unverified assumptions.",
+          };
         }
       }
       return { detected: false };
@@ -75,6 +120,8 @@ const FALLACY_RULES: FallacyRule[] = [
     type: "Slippery Slope",
     description:
       "Claiming that one small step will automatically lead to total disaster without proof.",
+    whyItQualifies:
+      "Asserts an unchecked chain reaction of catastrophic consequences from an initial action without proving intermediate causal links.",
     howToImprove:
       "Explain step by step why each problem would actually happen instead of jumping straight to the worst case.",
     matcher: (text: string) => {
@@ -86,7 +133,13 @@ const FALLACY_RULES: FallacyRule[] = [
       for (const p of patterns) {
         const match = text.match(p);
         if (match) {
-          return { detected: true, snippet: match[0] };
+          return {
+            detected: true,
+            snippet: match[0],
+            confidence: 90,
+            whyItQualifies:
+              "Assumes a chain of extreme catastrophic consequences without demonstrating causal necessity.",
+          };
         }
       }
       return { detected: false };
@@ -96,6 +149,8 @@ const FALLACY_RULES: FallacyRule[] = [
     type: "False Dilemma",
     description:
       "Pretending there are only two extreme choices when there is a sensible middle ground.",
+    whyItQualifies:
+      "Artificially restricts a nuanced policy spectrum to two polarized extremes, ignoring workable compromise solutions.",
     howToImprove:
       "Show that we can find compromise solutions rather than treating it as an all-or-nothing choice.",
     matcher: (text: string) => {
@@ -107,7 +162,13 @@ const FALLACY_RULES: FallacyRule[] = [
       for (const p of patterns) {
         const match = text.match(p);
         if (match) {
-          return { detected: true, snippet: match[0] };
+          return {
+            detected: true,
+            snippet: match[0],
+            confidence: 92,
+            whyItQualifies:
+              "Forces an artificial binary dilemma between two extremes while ignoring intermediate policy options.",
+          };
         }
       }
       return { detected: false };
@@ -117,6 +178,8 @@ const FALLACY_RULES: FallacyRule[] = [
     type: "Appeal to Authority",
     description:
       "Claiming something is true just because a famous person or influencer said so.",
+    whyItQualifies:
+      "Treats an individual's prestige, fame, or assertion as conclusive proof instead of evaluating objective evidence.",
     howToImprove:
       "Share actual research, facts, and reasons rather than just relying on a famous name.",
     matcher: (text: string) => {
@@ -127,7 +190,13 @@ const FALLACY_RULES: FallacyRule[] = [
       for (const p of patterns) {
         const match = text.match(p);
         if (match) {
-          return { detected: true, snippet: match[0] };
+          return {
+            detected: true,
+            snippet: match[0],
+            confidence: 84,
+            whyItQualifies:
+              "Relies on the presumed authority or prestige of an individual rather than testable empirical data.",
+          };
         }
       }
       return { detected: false };
@@ -137,6 +206,8 @@ const FALLACY_RULES: FallacyRule[] = [
     type: "Appeal to Emotion",
     description:
       "Using strong feelings like fear, pity, or anger to win an argument instead of real facts.",
+    whyItQualifies:
+      "Attempts to persuade by triggering visceral emotions (fear, disgust, guilt) rather than presenting structured causal arguments.",
     howToImprove:
       "Combine empathy with clear facts, costs, and logical reasons to convince your listeners.",
     matcher: (text: string) => {
@@ -148,7 +219,13 @@ const FALLACY_RULES: FallacyRule[] = [
       for (const p of patterns) {
         const match = text.match(p);
         if (match) {
-          return { detected: true, snippet: match[0] };
+          return {
+            detected: true,
+            snippet: match[0],
+            confidence: 90,
+            whyItQualifies:
+              "Substitutes emotional appeals and guilt-tripping for concrete evidence and factual reasoning.",
+          };
         }
       }
       return { detected: false };
@@ -158,6 +235,8 @@ const FALLACY_RULES: FallacyRule[] = [
     type: "Circular Reasoning",
     description:
       "Repeating your point in different words without giving a real reason to prove it.",
+    whyItQualifies:
+      "Assumes the truth of the conclusion inside the premise, creating a tautological loop without independent evidence.",
     howToImprove:
       "Give an outside fact or practical proof that shows why your claim is true.",
     matcher: (text: string) => {
@@ -169,7 +248,13 @@ const FALLACY_RULES: FallacyRule[] = [
       for (const p of patterns) {
         const match = text.match(p);
         if (match) {
-          return { detected: true, snippet: match[0] };
+          return {
+            detected: true,
+            snippet: match[0],
+            confidence: 94,
+            whyItQualifies:
+              "Restates the conclusion as its own supporting reason without introducing independent validation.",
+          };
         }
       }
       return { detected: false };
@@ -179,6 +264,8 @@ const FALLACY_RULES: FallacyRule[] = [
     type: "False Cause",
     description:
       "Assuming that because event A happened before event B, event A must have caused it.",
+    whyItQualifies:
+      "Confuses temporal sequence or mere correlation with direct causation (post hoc ergo propter hoc).",
     howToImprove:
       "Explain the clear connection and provide proof showing how one thing directly caused the other.",
     matcher: (text: string) => {
@@ -190,7 +277,13 @@ const FALLACY_RULES: FallacyRule[] = [
       for (const p of patterns) {
         const match = text.match(p);
         if (match) {
-          return { detected: true, snippet: match[0] };
+          return {
+            detected: true,
+            snippet: match[0],
+            confidence: 86,
+            whyItQualifies:
+              "Assumes that chronological sequence proves causal dependency without showing a mechanism.",
+          };
         }
       }
       return { detected: false };
@@ -199,17 +292,21 @@ const FALLACY_RULES: FallacyRule[] = [
 ];
 
 /**
- * Heuristic detector for fallacies from user argument text
+ * Heuristic detector for fallacies from user argument text with confidence & justification
  */
 export function detectFallaciesHeuristic(text: string): DetectedFallacy[] {
   const detected: DetectedFallacy[] = [];
   for (const rule of FALLACY_RULES) {
     const result = rule.matcher(text);
     if (result.detected) {
+      const confidence = result.confidence ?? 85;
       detected.push({
         name: rule.type,
         description: rule.description,
         snippet: result.snippet,
+        whyItQualifies: result.whyItQualifies || rule.whyItQualifies,
+        confidence,
+        isCertain: confidence >= 80,
         howToImprove: rule.howToImprove,
       });
     }

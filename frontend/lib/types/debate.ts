@@ -17,6 +17,16 @@ export interface DetectedFallacy {
   description: string;
   snippet?: string;
   howToImprove: string;
+  confidence?: number; // 0-100% confidence
+  whyItQualifies?: string; // contextual explanation of why it was flagged
+  isCertain?: boolean; // true if confidence >= 80%
+}
+
+export interface DimensionEvaluation {
+  score: number; // 0-100 clamped
+  reason: string; // concise evaluation
+  evidence: string; // observable text or structure from user's argument
+  improvement: string; // actionable coaching advice
 }
 
 export interface ArgumentScore {
@@ -25,10 +35,30 @@ export interface ArgumentScore {
   relevance: number; // 0-100
   clarity: number; // 0-100
   counterargumentHandling: number; // 0-100 (Rebuttal)
-  overall: number; // 0-100
+  overall: number; // 0-100 mathematically calculated in TypeScript
   strongestPoint: string;
   weakestPoint: string;
   coachFeedback?: string;
+  dimensionDetails?: {
+    logic: DimensionEvaluation;
+    evidence: DimensionEvaluation;
+    relevance: DimensionEvaluation;
+    clarity: DimensionEvaluation;
+    rebuttal: DimensionEvaluation;
+  };
+}
+
+export interface TransparencyDimensionReport {
+  score: number;
+  observation: string;
+  action: string;
+  evidenceUsed?: string;
+  sourceTitle?: string;
+  citation?: string;
+  confidence?: number;
+  motion?: string;
+  structuralStrengths?: string[];
+  addressedOpponentClaim?: string;
 }
 
 export interface RoundData {
@@ -46,6 +76,9 @@ export interface RoundData {
       content: string;
       citations: string[];
       relevanceScore?: number;
+      sourceType?: string;
+      claim?: string;
+      reasonForRetrieval?: string;
     }>;
     durationMs: number;
   };
@@ -68,6 +101,18 @@ export interface FinalReport {
   verdictTitle: string;
   verdictSummary: string;
   ruling: "User Won" | "AI Opponent Won" | "Draw / Tie";
+  transparencyReport?: {
+    logic: TransparencyDimensionReport;
+    evidence: TransparencyDimensionReport;
+    relevance: TransparencyDimensionReport;
+    clarity: TransparencyDimensionReport;
+    rebuttal: TransparencyDimensionReport;
+  };
+  trendData?: {
+    roundScores: number[];
+    isImproving: boolean;
+    scoreDelta: number;
+  };
 }
 
 export interface DebateSession {
