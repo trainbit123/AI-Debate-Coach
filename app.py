@@ -266,6 +266,8 @@ if not st.session_state.debate_session:
 # ACTIVE DEBATE ARENA
 # ----------------------------------------------------
 session: DebateSession = st.session_state.debate_session
+if not session:
+    st.stop()
 
 # Top Motion Banner
 user_badge_class = "badge-pro" if session.user_position == "Pro" else "badge-con"
