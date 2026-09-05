@@ -1,0 +1,476 @@
+{
+  "debates": [
+    {
+      "id": "deb_1788583700323_28yt2d",
+      "topic": "social media is good for students of all age groups",
+      "userPosition": "FOR",
+      "aiPosition": "AGAINST",
+      "difficulty": "intermediate",
+      "maxRounds": 3,
+      "currentRound": 1,
+      "isEndless": false,
+      "rounds": [],
+      "aiOpeningStatement": "Hello and welcome to this debate! I am firmly arguing against our topic: \"social media is good for students of all age groups\". While this idea might sound good on paper, in the real world it creates serious problems and huge hidden costs. We cannot ignore these practical risks just for a quick fix. I'm ready to hear your best arguments, and I look forward to a great debate. Let's begin!",
+      "isComplete": false,
+      "createdAt": "2026-09-05T04:48:20.323Z",
+      "updatedAt": "2026-09-05T04:48:20.474Z"
+    },
+    {
+      "id": "deb_1788583596692_y5sykf",
+      "topic": "Artificial intelligence development should be strictly regulated by governments",
+      "userPosition": "FOR",
+      "aiPosition": "AGAINST",
+      "difficulty": "beginner",
+      "maxRounds": 3,
+      "currentRound": 1,
+      "isEndless": false,
+      "rounds": [],
+      "aiOpeningStatement": "Hello and welcome to this debate! I am firmly arguing against our topic: \"Artificial intelligence development should be strictly regulated by governments\". While this idea might sound good on paper, in the real world it creates serious problems and huge hidden costs. We cannot ignore these practical risks just for a quick fix. I'm ready to hear your best arguments, and I look forward to a great debate. Let's begin!",
+      "isComplete": false,
+      "createdAt": "2026-09-05T04:46:36.692Z",
+      "updatedAt": "2026-09-05T04:46:36.869Z"
+    },
+    {
+      "id": "deb_1788582023998_97wre7",
+      "topic": "social media is good for sutdents",
+      "userPosition": "FOR",
+      "aiPosition": "AGAINST",
+      "difficulty": "beginner",
+      "maxRounds": 1,
+      "currentRound": 1,
+      "isEndless": false,
+      "rounds": [
+        {
+          "roundNumber": 1,
+          "userArgument": "Because social media waste the time and distracts the students from the studies.",
+          "aiCounterargument": "I understand your point regarding social media is good for sutdents, but let us examine why arguing firmly opposed to this issue presents critical counter-evidence. While you raised interesting observations, the core flaw is that your position understates systemic economic, ethical, and practical trade-offs. If we prioritize your view, we risk ignoring proven historical safeguards. A balanced perspective demonstrates that taking the opposing stance protects public interest and long-term sustainability.",
+          "aiFollowUpQuestion": "How would you respond to the unintended consequences that arise if your policy were enacted without strict limitations?",
+          "score": {
+            "logic": 76,
+            "evidence": 72,
+            "relevance": 75,
+            "clarity": 63,
+            "counterargumentHandling": 75,
+            "overall": 73,
+            "strongestPoint": "Strong logical structure with compelling phrasing.",
+            "weakestPoint": "Needs stronger rhetorical clarity.",
+            "coachFeedback": "Solid argumentative thrust. To reach collegiate mastery, incorporate specific real-world data points and dismantle opposing assumptions."
+          },
+          "fallacies": [],
+          "timestamp": "2026-09-05T04:22:45.816Z"
+        }
+      ],
+      "aiOpeningStatement": "I welcome this exchange, and I stand resolutely opposed to the proposition: \"social media is good for sutdents\". While the affirmative position often relies on well-intentioned idealism, it collapses upon closer examination of historical precedent, unforeseen economic fallout, and structural risks. The burden of proof rests squarely on the affirmative to demonstrate that the catastrophic vulnerabilities introduced by their proposal will not manifest. I look forward to holding their arguments to the highest standard of evidence.",
+      "isComplete": true,
+      "createdAt": "2026-09-05T04:20:23.998Z",
+      "updatedAt": "2026-09-05T04:22:45.822Z",
+      "finalVerdict": {
+        "overallScore": 73,
+        "logicScore": 76,
+        "evidenceScore": 72,
+        "relevanceScore": 75,
+        "clarityScore": 63,
+        "rebuttalScore": 75,
+        "totalFallacies": 0,
+        "fallacyBreakdown": {},
+        "detectedFallacyList": [],
+        "strongestArgument": "Round 1: \"Because social media waste the time and distracts the students from the studies....\" (Score: 73/100)",
+        "weakestArgument": "Round 1: \"Because social media waste the time and distracts the students from the studies....\" (Score: 73/100)",
+        "coachAdvice": [
+          "Mastery demonstrated. To progress further, test your agility against Oxford-level philosophical dilemmas and time-pressured rapid refutations."
+        ],
+        "verdictTitle": "Victory for the Affirmative / User!",
+        "verdictSummary": "Through disciplined structure, consistent rebuttal, and factual anchoring, you maintained rhetorical superiority over 1 round(s). Your average score of 73/100 exceeded the beginner standard.",
+        "ruling": "User Won"
+      }
+    },
+    {
+      "id": "deb_1788580841959_xsuwrw",
+      "topic": "Artificial Intelligence development should be strictly regulated by international treaties",
+      "userPosition": "FOR",
+      "aiPosition": "AGAINST",
+      "difficulty": "intermediate",
+      "maxRounds": 3,
+      "currentRound": 1,
+      "rounds": [],
+      "aiOpeningStatement": "I welcome this exchange, and I stand resolutely opposed to the proposition: \"Artificial Intelligence development should be strictly regulated by international treaties\". While the affirmative position often relies on well-intentioned idealism, it collapses upon closer examination of historical precedent, unforeseen economic fallout, and structural risks. The burden of proof rests squarely on the affirmative to demonstrate that the catastrophic vulnerabilities introduced by their proposal will not manifest. I look forward to holding their arguments to the highest standard of evidence.",
+      "isComplete": false,
+      "createdAt": "2026-09-05T04:00:41.959Z",
+      "updatedAt": "2026-09-05T04:00:41.963Z"
+    },
+    {
+      "id": "deb_1788578735998_81pf32",
+      "topic": "Artificial Intelligence development should be strictly regulated by international treaties",
+      "userPosition": "AGAINST",
+      "aiPosition": "FOR",
+      "difficulty": "beginner",
+      "maxRounds": 3,
+      "currentRound": 1,
+      "rounds": [],
+      "aiOpeningStatement": "Welcome to the debate floor. I stand firmly in favor of the proposition: \"Artificial Intelligence development should be strictly regulated by international treaties\". When we evaluate this issue through the lens of empirical outcomes and ethical responsibility, the affirmative case is undeniable. Moving forward with this motion directly tackles critical inefficiencies, spurs innovation, and upholds justice. I invite my worthy opponent to explain how continuing to resist this necessary transformation can possibly be justified in light of modern realities. Let us begin.",
+      "isComplete": false,
+      "createdAt": "2026-09-05T03:25:35.998Z",
+      "updatedAt": "2026-09-05T03:25:36.032Z"
+    },
+    {
+      "id": "deb_1788577308656_clzjag",
+      "topic": "Artificial Intelligence development should be strictly regulated by international treaties",
+      "userPosition": "FOR",
+      "aiPosition": "AGAINST",
+      "difficulty": "beginner",
+      "maxRounds": 3,
+      "currentRound": 1,
+      "rounds": [],
+      "aiOpeningStatement": "I welcome this exchange, and I stand resolutely opposed to the proposition: \"Artificial Intelligence development should be strictly regulated by international treaties\". While the affirmative position often relies on well-intentioned idealism, it collapses upon closer examination of historical precedent, unforeseen economic fallout, and structural risks. The burden of proof rests squarely on the affirmative to demonstrate that the catastrophic vulnerabilities introduced by their proposal will not manifest. I look forward to holding their arguments to the highest standard of evidence.",
+      "isComplete": false,
+      "createdAt": "2026-09-05T03:01:48.656Z",
+      "updatedAt": "2026-09-05T03:01:48.658Z"
+    },
+    {
+      "id": "deb_1788577245379_il7w0j",
+      "topic": "social media isuseful for students",
+      "userPosition": "FOR",
+      "aiPosition": "AGAINST",
+      "difficulty": "intermediate",
+      "maxRounds": 3,
+      "currentRound": 1,
+      "rounds": [],
+      "aiOpeningStatement": "I welcome this exchange, and I stand resolutely opposed to the proposition: \"social media isuseful for students\". While the affirmative position often relies on well-intentioned idealism, it collapses upon closer examination of historical precedent, unforeseen economic fallout, and structural risks. The burden of proof rests squarely on the affirmative to demonstrate that the catastrophic vulnerabilities introduced by their proposal will not manifest. I look forward to holding their arguments to the highest standard of evidence.",
+      "isComplete": false,
+      "createdAt": "2026-09-05T03:00:45.379Z",
+      "updatedAt": "2026-09-05T03:00:45.381Z"
+    },
+    {
+      "id": "deb_1788577127652_mvo7o5",
+      "topic": "Social media algorithms do more harm than good to teenage mental health and social development",
+      "userPosition": "FOR",
+      "aiPosition": "AGAINST",
+      "difficulty": "beginner",
+      "maxRounds": 3,
+      "currentRound": 1,
+      "rounds": [],
+      "aiOpeningStatement": "I welcome this exchange, and I stand resolutely opposed to the proposition: \"Social media algorithms do more harm than good to teenage mental health and social development\". While the affirmative position often relies on well-intentioned idealism, it collapses upon closer examination of historical precedent, unforeseen economic fallout, and structural risks. The burden of proof rests squarely on the affirmative to demonstrate that the catastrophic vulnerabilities introduced by their proposal will not manifest. I look forward to holding their arguments to the highest standard of evidence.",
+      "isComplete": false,
+      "createdAt": "2026-09-05T02:58:47.652Z",
+      "updatedAt": "2026-09-05T02:58:47.655Z"
+    },
+    {
+      "id": "deb_1788576410251_s72l3m",
+      "topic": "Artificial Intelligence development should be strictly regulated by international treaties",
+      "userPosition": "FOR",
+      "aiPosition": "AGAINST",
+      "difficulty": "intermediate",
+      "maxRounds": 3,
+      "currentRound": 2,
+      "rounds": [
+        {
+          "roundNumber": 1,
+          "userArgument": "Moreover, international treaties are often slow to negotiate and difficult to enforce, while AI is evolving extremely rapidly. A rigid global treaty could quickly become outdated and prevent nations from adapting to new technologies and emerging risks.\n\nStrict regulation could also reduce innovation, investment, and competitiveness, particularly for developing countries and smaller companies that may not have the resources to comply with complex international requirements.\n\nI am not arguing against AI regulation altogether. We should regulate dangerous applications, ensure accountability, and establish safety standards. But instead of imposing one rigid international treaty, we should adopt flexible, risk-based regulations that can evolve alongside AI.\n\nTherefore, **we should regulate the risks of AI, not restrict the development of AI itself.**",
+          "aiCounterargument": "Your defense of the affirmative stance on \"Artificial Intelligence development should be strictly regulated by international treaties\" falters when subjected to empirical scrutiny. First, your primary premise assumes that the benefits can be achieved in a vacuum, completely neglecting resource constraints and regulatory resistance. Second, comparative case studies reveal that similar initiatives often yield severe counter-incentives rather than the clean outcomes you project. Therefore, my position remains the more defensible, structurally sound approach.",
+          "aiFollowUpQuestion": "What concrete empirical data can you cite to prove that the benefits you claim outweigh the measurable societal and institutional costs?",
+          "score": {
+            "logic": 65,
+            "evidence": 58,
+            "relevance": 75,
+            "clarity": 93,
+            "counterargumentHandling": 75,
+            "overall": 72,
+            "strongestPoint": "Strong rhetorical clarity with compelling phrasing.",
+            "weakestPoint": "Lacks concrete statistics, specific historical case studies, or cited studies.",
+            "coachFeedback": "Solid argumentative thrust. To reach collegiate mastery, incorporate specific real-world data points and dismantle opposing assumptions."
+          },
+          "fallacies": [],
+          "timestamp": "2026-09-05T02:51:05.776Z"
+        }
+      ],
+      "aiOpeningStatement": "I welcome this exchange, and I stand resolutely opposed to the proposition: \"Artificial Intelligence development should be strictly regulated by international treaties\". While the affirmative position often relies on well-intentioned idealism, it collapses upon closer examination of historical precedent, unforeseen economic fallout, and structural risks. The burden of proof rests squarely on the affirmative to demonstrate that the catastrophic vulnerabilities introduced by their proposal will not manifest. I look forward to holding their arguments to the highest standard of evidence.",
+      "isComplete": false,
+      "createdAt": "2026-09-05T02:46:50.251Z",
+      "updatedAt": "2026-09-05T02:51:05.784Z"
+    },
+    {
+      "id": "deb_1788575400272_vo6amj",
+      "topic": "Nuclear energy is essential for a green transition",
+      "userPosition": "FOR",
+      "aiPosition": "AGAINST",
+      "difficulty": "intermediate",
+      "maxRounds": 2,
+      "currentRound": 2,
+      "rounds": [
+        {
+          "roundNumber": 1,
+          "userArgument": "Nuclear power plants produce zero direct greenhouse gas emissions during operation and provide vital baseload electricity when renewables like wind and solar cannot generate power due to intermittency.",
+          "aiCounterargument": "Your defense of the affirmative stance on \"Nuclear energy is essential for a green transition\" falters when subjected to empirical scrutiny. First, your primary premise assumes that the benefits can be achieved in a vacuum, completely neglecting resource constraints and regulatory resistance. Second, comparative case studies reveal that similar initiatives often yield severe counter-incentives rather than the clean outcomes you project. Therefore, my position remains the more defensible, structurally sound approach.",
+          "aiFollowUpQuestion": "What concrete empirical data can you cite to prove that the benefits you claim outweigh the measurable societal and institutional costs?",
+          "score": {
+            "logic": 65,
+            "evidence": 43,
+            "relevance": 71,
+            "clarity": 85,
+            "counterargumentHandling": 75,
+            "overall": 67,
+            "strongestPoint": "Strong rhetorical clarity with compelling phrasing.",
+            "weakestPoint": "Lacks concrete statistics, specific historical case studies, or cited studies.",
+            "coachFeedback": "Developing argument. Be careful of unbacked generalizations and ensure every claim is tethered to demonstrable proof."
+          },
+          "fallacies": [],
+          "timestamp": "2026-09-05T02:30:11.493Z"
+        },
+        {
+          "roundNumber": 2,
+          "userArgument": "Opponents are idiots who do not care about science. If we ban nuclear energy, this will inevitably lead to the death of civilization, and everyone knows that solar can never work 100% of the time without exception.",
+          "aiCounterargument": "Your defense of the affirmative stance on \"Nuclear energy is essential for a green transition\" falters when subjected to empirical scrutiny. Furthermore, your argument lapses into a Ad Hominem: attacking the opponent's character, intelligence, or motives rather than addressing the substance of their argument. First, your primary premise assumes that the benefits can be achieved in a vacuum, completely neglecting resource constraints and regulatory resistance. Second, comparative case studies reveal that similar initiatives often yield severe counter-incentives rather than the clean outcomes you project. Therefore, my position remains the more defensible, structurally sound approach.",
+          "aiFollowUpQuestion": "Can you defend your thesis without resorting to Ad Hominem, and instead present verified empirical data?",
+          "score": {
+            "logic": 37,
+            "evidence": 58,
+            "relevance": 71,
+            "clarity": 75,
+            "counterargumentHandling": 62,
+            "overall": 59,
+            "strongestPoint": "Strong rhetorical clarity with compelling phrasing.",
+            "weakestPoint": "Compromised by logical fallacy: Ad Hominem, Hasty Generalization.",
+            "coachFeedback": "Developing argument. Be careful of unbacked generalizations and ensure every claim is tethered to demonstrable proof."
+          },
+          "fallacies": [
+            {
+              "name": "Ad Hominem",
+              "description": "Attacking the opponent's character, intelligence, or motives rather than addressing the substance of their argument.",
+              "snippet": "Opponents are idiots",
+              "howToImprove": "Focus directly on the empirical claims, reasoning, or logical premises of the opposing argument rather than the person making it."
+            },
+            {
+              "name": "Hasty Generalization",
+              "description": "Drawing a sweeping, definitive conclusion from an isolated instance, anecdotal sample, or unrepresentative evidence.",
+              "snippet": "everyone knows that",
+              "howToImprove": "Qualify your claims with probabilistic language ('frequently', 'studies suggest', 'in many cases') and cite broad statistical data."
+            }
+          ],
+          "timestamp": "2026-09-05T02:30:23.075Z"
+        }
+      ],
+      "aiOpeningStatement": "I welcome this exchange, and I stand resolutely opposed to the proposition: \"Nuclear energy is essential for a green transition\". While the affirmative position often relies on well-intentioned idealism, it collapses upon closer examination of historical precedent, unforeseen economic fallout, and structural risks. The burden of proof rests squarely on the affirmative to demonstrate that the catastrophic vulnerabilities introduced by their proposal will not manifest. I look forward to holding their arguments to the highest standard of evidence.",
+      "isComplete": true,
+      "createdAt": "2026-09-05T02:30:00.272Z",
+      "updatedAt": "2026-09-05T02:30:23.076Z",
+      "finalVerdict": {
+        "overallScore": 63,
+        "logicScore": 51,
+        "evidenceScore": 51,
+        "relevanceScore": 71,
+        "clarityScore": 80,
+        "rebuttalScore": 69,
+        "totalFallacies": 2,
+        "fallacyBreakdown": {
+          "Ad Hominem": 1,
+          "Hasty Generalization": 1
+        },
+        "detectedFallacyList": [
+          {
+            "name": "Ad Hominem",
+            "description": "Attacking the opponent's character, intelligence, or motives rather than addressing the substance of their argument.",
+            "snippet": "Opponents are idiots",
+            "howToImprove": "Focus directly on the empirical claims, reasoning, or logical premises of the opposing argument rather than the person making it."
+          },
+          {
+            "name": "Hasty Generalization",
+            "description": "Drawing a sweeping, definitive conclusion from an isolated instance, anecdotal sample, or unrepresentative evidence.",
+            "snippet": "everyone knows that",
+            "howToImprove": "Qualify your claims with probabilistic language ('frequently', 'studies suggest', 'in many cases') and cite broad statistical data."
+          }
+        ],
+        "strongestArgument": "Round 1: \"Nuclear power plants produce zero direct greenhouse gas emissions during operation and provide vital baseload electricit...\" (Score: 67/100)",
+        "weakestArgument": "Round 2: \"Opponents are idiots who do not care about science. If we ban nuclear energy, this will inevitably lead to the death of ...\" (Score: 59/100)",
+        "coachAdvice": [
+          "Deepen your empirical foundation: integrate named academic studies, economic metrics, and quantifiable benchmarks rather than general assertions.",
+          "Eliminate cognitive fallacies: you encountered 2 fallacy flag(s) (Ad Hominem, Hasty Generalization). Re-frame arguments using steel-manned premises.",
+          "Sharpen counter-rebuttal precision: quote your opponent's exact premise before demonstrating why their causal mechanism fails."
+        ],
+        "verdictTitle": "Adjudicated to the AI Opponent",
+        "verdictSummary": "While you mounted competitive points, your line of argument suffered from critical vulnerabilities in fallacious reasoning and empirical corroboration. The AI opponent successfully defended its position.",
+        "ruling": "AI Opponent Won"
+      }
+    },
+    {
+      "id": "deb_seed_001",
+      "topic": "Artificial Intelligence development should be strictly regulated by international treaties",
+      "userPosition": "FOR",
+      "aiPosition": "AGAINST",
+      "difficulty": "intermediate",
+      "maxRounds": 3,
+      "currentRound": 3,
+      "isComplete": true,
+      "createdAt": "2026-08-28T14:30:00.000Z",
+      "updatedAt": "2026-08-28T14:45:00.000Z",
+      "aiOpeningStatement": "I stand resolutely opposed to sweeping international treaties on AI development. Heavy-handed global bureaucracy will stifle open-source innovation, empower authoritarian regimes that ignore international norms, and paralyze critical medical and scientific breakthroughs.",
+      "rounds": [
+        {
+          "roundNumber": 1,
+          "userArgument": "Uncontrolled AI models pose catastrophic biosecurity and cyber warfare risks. Without binding global treaties similar to the IAEA for nuclear energy, private corporations will race recklessly without safety guardrails.",
+          "aiCounterargument": "Your analogy to nuclear material is fundamentally flawed because compute and software cannot be inspected or locked in physical silos like enriched uranium. Unilateral treaties simply hobble democratic nations while non-compliant adversaries race ahead underground.",
+          "aiFollowUpQuestion": "How can an international treaty practically inspect decentralized weights or prevent private actors from utilizing open-source models offline?",
+          "score": {
+            "logic": 82,
+            "evidence": 76,
+            "relevance": 90,
+            "clarity": 85,
+            "counterargumentHandling": 75,
+            "overall": 82,
+            "strongestPoint": "Compelling IAEA nuclear regulatory analogy.",
+            "weakestPoint": "Did not account for enforceability in non-signatory nations.",
+            "coachFeedback": "Strong opening premise. In round 2, directly address how verification mechanisms can work without intrusive state surveillance."
+          },
+          "fallacies": [],
+          "timestamp": "2026-08-28T14:35:00.000Z"
+        },
+        {
+          "roundNumber": 2,
+          "userArgument": "Treaties don't need to inspect every computer; they can track leading semiconductor chip fabrication foundries and megawatt-scale data centers through energy signatures and export controls.",
+          "aiCounterargument": "Targeting hardware only accelerates decentralized training algorithms and lightweight distillation techniques that achieve frontier capabilities on commodity consumer hardware within 18 months.",
+          "aiFollowUpQuestion": "What happens when algorithmic efficiency overcomes hardware constraints, rendering your data center tracking obsolete?",
+          "score": {
+            "logic": 86,
+            "evidence": 84,
+            "relevance": 94,
+            "clarity": 88,
+            "counterargumentHandling": 82,
+            "overall": 87,
+            "strongestPoint": "Realistic supply chain chokepoint focus on advanced semiconductor lithography.",
+            "weakestPoint": "Underestimated the speed of software optimization and model quantization.",
+            "coachFeedback": "Excellent rebuttal handling. Concrete evidence significantly strengthened your posture."
+          },
+          "fallacies": [],
+          "timestamp": "2026-08-28T14:40:00.000Z"
+        },
+        {
+          "roundNumber": 3,
+          "userArgument": "Even with quantization, frontier training runs still require billions in capital and specialized clusters. Responsible governance creates a safety floor, preventing reckless deployment while permitting monitored open research.",
+          "aiCounterargument": "While governance is desirable in principle, history demonstrates that regulatory capture entrenches incumbent monopolies, cementing Big Tech power rather than genuinely safeguarding citizens.",
+          "aiFollowUpQuestion": "How do you prevent regulatory capture from snuffing out the next generation of independent researchers?",
+          "score": {
+            "logic": 84,
+            "evidence": 80,
+            "relevance": 92,
+            "clarity": 86,
+            "counterargumentHandling": 85,
+            "overall": 85,
+            "strongestPoint": "Pragmatic distinction between frontier capital expenditures and open academic research.",
+            "weakestPoint": "Left the regulatory capture critique partially unaddressed.",
+            "coachFeedback": "Consistently disciplined rhetoric. Outstanding collegiate debate execution."
+          },
+          "fallacies": [],
+          "timestamp": "2026-08-28T14:45:00.000Z"
+        }
+      ],
+      "finalVerdict": {
+        "overallScore": 85,
+        "logicScore": 84,
+        "evidenceScore": 80,
+        "relevanceScore": 92,
+        "clarityScore": 86,
+        "rebuttalScore": 81,
+        "totalFallacies": 0,
+        "fallacyBreakdown": {},
+        "detectedFallacyList": [],
+        "strongestArgument": "Round 2: Semiconductor supply chain and foundry tracking.",
+        "weakestArgument": "Round 1: Initial enforceability mechanisms.",
+        "coachAdvice": [
+          "Continue utilizing supply-chain and structural chokepoint data in technical policy motions.",
+          "Prepare pre-emptive rebuttals for public-choice economics and regulatory capture arguments."
+        ],
+        "verdictTitle": "Decisive Victory for the User!",
+        "verdictSummary": "The affirmative successfully proved that international governance can leverage physical semiconductor supply chains, resisting the negative's defeatist claims about decentralized evasion.",
+        "ruling": "User Won"
+      }
+    },
+    {
+      "id": "deb_seed_002",
+      "topic": "Universal Basic Income should replace the existing welfare system",
+      "userPosition": "AGAINST",
+      "aiPosition": "FOR",
+      "difficulty": "advanced",
+      "maxRounds": 2,
+      "currentRound": 2,
+      "isComplete": true,
+      "createdAt": "2026-08-29T10:15:00.000Z",
+      "updatedAt": "2026-08-29T10:28:00.000Z",
+      "aiOpeningStatement": "Universal Basic Income is the single most efficient, dignity-preserving, and non-paternalistic mechanism to guarantee an economic floor in an era of rapid workplace automation and structural displacement.",
+      "rounds": [
+        {
+          "roundNumber": 1,
+          "userArgument": "Replacing targeted welfare with a flat check will dismantle essential healthcare and disability assistance for the most vulnerable citizens, who require far more support than a modest monthly sum.",
+          "aiCounterargument": "A properly designed UBI replaces only means-tested income traps and paternalistic bureaucracy while preserving categorical healthcare and severe disability aid.",
+          "aiFollowUpQuestion": "How do you justify maintaining welfare systems with 70% marginal tax clawback rates that trap recipients in chronic poverty?",
+          "score": {
+            "logic": 78,
+            "evidence": 72,
+            "relevance": 88,
+            "clarity": 82,
+            "counterargumentHandling": 74,
+            "overall": 79,
+            "strongestPoint": "Highlighted the disproportionate needs of disabled and medically vulnerable populations.",
+            "weakestPoint": "Attacked an absolute caricature of UBI instead of nuanced composite models.",
+            "coachFeedback": "Watch out for strawman characterizations of basic income models."
+          },
+          "fallacies": [
+            {
+              "name": "Strawman",
+              "description": "Oversimplifying UBI proposals as completely eliminating disability and medical care.",
+              "snippet": "will dismantle essential healthcare and disability assistance",
+              "howToImprove": "Engage with proposals that retain catastrophic medical insurance alongside UBI."
+            }
+          ],
+          "timestamp": "2026-08-29T10:20:00.000Z"
+        },
+        {
+          "roundNumber": 2,
+          "userArgument": "Financing a universal transfer of $1,000/month to 250 million adults requires roughly $3 trillion annually, precipitating either hyperinflation or crushing tax hikes that depress economic productivity.",
+          "aiCounterargument": "Net fiscal cost is a fraction of the gross cost because high earners pay back the benefit through progressive income and carbon dividend taxation, recycling purchasing power directly into local economies.",
+          "aiFollowUpQuestion": "Do you have evidence that cash transfers cause hyperinflation when funded through progressive taxation rather than unchecked monetary expansion?",
+          "score": {
+            "logic": 83,
+            "evidence": 81,
+            "relevance": 90,
+            "clarity": 85,
+            "counterargumentHandling": 80,
+            "overall": 84,
+            "strongestPoint": "Strong macroeconomic fiscal arithmetic highlighting gross budgetary requirements.",
+            "weakestPoint": "Conflated gross entitlement cost with net redistributive cost.",
+            "coachFeedback": "Good comeback with concrete numbers and fiscal trade-off analysis."
+          },
+          "fallacies": [],
+          "timestamp": "2026-08-29T10:28:00.000Z"
+        }
+      ],
+      "finalVerdict": {
+        "overallScore": 81,
+        "logicScore": 80,
+        "evidenceScore": 76,
+        "relevanceScore": 89,
+        "clarityScore": 83,
+        "rebuttalScore": 77,
+        "totalFallacies": 1,
+        "fallacyBreakdown": {
+          "Strawman": 1
+        },
+        "detectedFallacyList": [
+          {
+            "name": "Strawman",
+            "description": "Oversimplifying UBI proposals as completely eliminating disability and medical care.",
+            "snippet": "will dismantle essential healthcare and disability assistance",
+            "howToImprove": "Engage with proposals that retain catastrophic medical insurance alongside UBI."
+          }
+        ],
+        "strongestArgument": "Round 2: Fiscal mathematics and gross federal expenditure constraints.",
+        "weakestArgument": "Round 1: Total replacement assumption of medical assistance.",
+        "coachAdvice": [
+          "Differentiate between gross program cost and net fiscal redistribution.",
+          "Steel-man the affirmative's stance on marginal effective tax rate poverty traps."
+        ],
+        "verdictTitle": "Close Contest Adjudicated to the AI Opponent",
+        "verdictSummary": "The AI opponent effectively counter-attacked the user's fiscal calculations and highlighted the Strawman fallacy in Round 1, winning on argumentative economy.",
+        "ruling": "AI Opponent Won"
+      }
+    }
+  ]
+}

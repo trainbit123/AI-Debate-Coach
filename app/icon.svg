@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="50%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="micGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e0e7ff"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Rounded App Icon Background -->
+  <rect width="64" height="64" rx="16" fill="url(#bgGrad)"/>
+  
+  <!-- Subtle border highlight -->
+  <rect x="1" y="1" width="62" height="62" rx="15" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+
+  <!-- Debate Speech Bubbles (Clash of ideas) -->
+  <!-- Left user speech bubble -->
+  <path d="M12 24 C12 18.5 17 14 24 14 C31 14 36 18.5 36 24 C36 29.5 31 34 24 34 C21.5 34 19.2 33.3 17.2 32.2 L13 34 L14.2 30 C12.8 28.3 12 26.2 12 24 Z" 
+        fill="rgba(255, 255, 255, 0.15)" stroke="rgba(255, 255, 255, 0.3)" stroke-width="1.5"/>
+
+  <!-- Right AI counter speech bubble -->
+  <path d="M52 32 C52 26.5 47 22 40 22 C33 22 28 26.5 28 32 C28 37.5 33 42 40 42 C42.5 42 44.8 41.3 46.8 40.2 L51 42 L49.8 38 C51.2 36.3 52 34.2 52 32 Z" 
+        fill="rgba(251, 191, 36, 0.18)" stroke="rgba(251, 191, 36, 0.4)" stroke-width="1.5"/>
+
+  <!-- Center Debate Microphone -->
+  <!-- Mic Body -->
+  <rect x="27" y="16" width="10" height="18" rx="5" fill="url(#micGrad)" filter="url(#glow)"/>
+  <!-- Mic Grille Lines -->
+  <line x1="28.5" y1="21" x2="35.5" y2="21" stroke="#818cf8" stroke-width="1" stroke-linecap="round"/>
+  <line x1="28.5" y1="25" x2="35.5" y2="25" stroke="#818cf8" stroke-width="1" stroke-linecap="round"/>
+
+  <!-- Mic Cradle / U-shape -->
+  <path d="M23 26 C23 31.5 27 36 32 36 C37 36 41 31.5 41 26" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Mic Stand Stem -->
+  <line x1="32" y1="36" x2="32" y2="44" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Mic Stand Base -->
+  <path d="M22 46 L42 46" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Sound Waves (Voice Debate in Action) -->
+  <path d="M18 22 C16.5 24.5 16.5 27.5 18 30" fill="none" stroke="url(#goldGrad)" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M46 22 C47.5 24.5 47.5 27.5 46 30" fill="none" stroke="url(#goldGrad)" stroke-width="2.2" stroke-linecap="round"/>
+</svg>
