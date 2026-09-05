@@ -1,0 +1,46 @@
+{
+  "topicId": "topic-ubi",
+  "topicTitle": "Universal Basic Income & Social Welfare",
+  "documents": [
+    {
+      "id": "kb-ubi-01",
+      "title": "Finland National Basic Income Experiment (Kela 2017–2018)",
+      "category": "Empirical Trial",
+      "stanceAlignment": "BALANCED",
+      "summary": "Finland provided €560 monthly unconditional tax-free basic income to 2,000 unemployed individuals for two years to study employment participation and subjective well-being.",
+      "evidence": "Recipients experienced significantly higher levels of life satisfaction, mental resilience, lower cortisol/stress levels, and greater financial confidence compared to the control group. Employment gains were statistically modest (recipients worked an average of 6 additional days per year).",
+      "citations": ["Kela (Social Insurance Institution of Finland), Final Report on the Finnish Basic Income Experiment, 2020"],
+      "keywords": ["finland", "kela", "wellbeing", "stress reduction", "employment participation", "pilot trial"]
+    },
+    {
+      "id": "kb-ubi-02",
+      "title": "Alaska Permanent Fund Dividend (PFD): Macroeconomic Effects",
+      "category": "Longitudinal Economic Study",
+      "stanceAlignment": "PRO_UBI",
+      "summary": "Operating since 1982, distributing universal annual cash dividends ($1,000 to $3,200 per resident) funded from state mineral royalties to all Alaskan residents regardless of employment.",
+      "evidence": "NBER analysis demonstrated that universal unconditional cash transfers did not diminish full-time aggregate employment; instead, part-time work expanded by 17%, and increased local purchasing power created consumer service jobs that balanced voluntary reductions in marginal hours.",
+      "citations": ["National Bureau of Economic Research (NBER), 'The Effect of a Universal Cash Transfer on Employment: Evidence from the Alaska Permanent Fund', 2018"],
+      "keywords": ["alaska permanent fund", "dividend", "part-time labor", "local economy", "nber", "longitudinal"]
+    },
+    {
+      "id": "kb-ubi-03",
+      "title": "Fiscal Feasibility & Tax Burden of Nationwide UBI",
+      "category": "Fiscal Policy",
+      "stanceAlignment": "AGAINST_UBI",
+      "summary": "Calculations on the budgetary cost of universal basic income for adult populations and the trade-offs with existing targeted programs.",
+      "evidence": "A standard $1,000/month UBI for 258 million adult Americans requires approximately $3.1 trillion annually—equivalent to roughly 75% of total federal tax revenues. Paying for it without slashing core healthcare and disability transfers would require doubling federal income taxes or enacting an aggressive 15–20% Value Added Tax (VAT).",
+      "citations": ["Congressional Budget Office (CBO), Working Paper on Universal Cash Transfers, 2023", "Tax Foundation, 'Modeling Universal Basic Income Options', 2022"],
+      "keywords": ["fiscal cost", "taxation", "budget deficit", "vat", "cbo", "trade-offs", "trillions"]
+    },
+    {
+      "id": "kb-ubi-04",
+      "title": "The Welfare Trap & Administrative Overhead of Means-Testing",
+      "category": "Social Policy",
+      "stanceAlignment": "PRO_UBI",
+      "summary": "Means-tested welfare programs impose high marginal effective tax rates (METRs) on the working poor, creating perverse disincentives to seek employment.",
+      "evidence": "Beneficiaries under TANF, SNAP, and housing vouchers frequently face effective marginal tax rates between 70% and 95% due to abrupt benefit phase-outs when wage income rises. Administrative overhead in means-testing consumes 8% to 14% of overall welfare program budgets, whereas direct cash transfers consume under 2%.",
+      "citations": ["Center on Budget and Policy Priorities (CBPP), 'Marginal Tax Rates on Low-Income Families', 2023"],
+      "keywords": ["welfare trap", "means testing", "marginal effective tax rate", "overhead", "administrative waste"]
+    }
+  ]
+}

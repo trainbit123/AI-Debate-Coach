@@ -1,0 +1,36 @@
+{
+  "topicId": "topic-remote-work",
+  "topicTitle": "Remote Work vs Office Work",
+  "documents": [
+    {
+      "id": "kb-remote-01",
+      "title": "Stanford Hybrid & Remote Work Longitudinal Study (Nicholas Bloom)",
+      "category": "Productivity & Management",
+      "stanceAlignment": "BALANCED",
+      "summary": "Long-term randomized controlled trials and surveys across 16,000+ workers analyzing output, turnover, and innovation across in-person, hybrid, and fully remote cohorts.",
+      "evidence": "Fully remote workers demonstrated a 13% performance increase primarily driven by fewer sick days and quieter work environments. However, fully remote setups experienced an 18% reduction in patent collaboration and cross-departmental spontaneous innovation compared to in-office peers.",
+      "citations": ["Nicholas Bloom et al., Stanford Institute for Economic Policy Research (SIEPR), 'Hybrid Work Is Good for Employees and Companies', Nature 2024"],
+      "keywords": ["stanford study", "nicholas bloom", "productivity", "turnover", "innovation", "hybrid model"]
+    },
+    {
+      "id": "kb-remote-02",
+      "title": "Environmental and Commuter Economic Dividends",
+      "category": "Environmental Science",
+      "stanceAlignment": "PRO_REMOTE",
+      "summary": "Impact of telecommuting on transport carbon footprints, urban congestion, and employee cost of living.",
+      "evidence": "Working from home 2–4 days per week reduces individual transport greenhouse gas emissions by up to 54%. The average commuter reclaims 54 minutes per day in commute time and saves an estimated $4,500 to $6,000 annually on fuel, transit, and professional wardrobe.",
+      "citations": ["Proceedings of the National Academy of Sciences (PNAS), 'Climate Mitigation Potential of Teleworking', 2023"],
+      "keywords": ["carbon emissions", "commute time", "cost savings", "transport", "pnas"]
+    },
+    {
+      "id": "kb-remote-03",
+      "title": "Workplace Mentorship Erosion & Urban Economic Hollow-Out",
+      "category": "Sociology & Economics",
+      "stanceAlignment": "AGAINST_REMOTE",
+      "summary": "Adverse effects on entry-level employee career onboarding and commercial real estate downtown ecosystems.",
+      "evidence": "Junior software engineers receiving in-person code reviews and informal proximity mentorship received 24% more promotional recommendations in their first 24 months than remote equivalents. Commercial vacancy rates exceeded 25% in major city centers, shrinking municipal tax bases for transit and schools.",
+      "citations": ["Federal Reserve Bank of New York Staff Reports, 'The Power of Proximity: In-Person Interaction and Mentorship', 2023"],
+      "keywords": ["mentorship", "junior employees", "promotion", "commercial real estate", "urban decay"]
+    }
+  ]
+}

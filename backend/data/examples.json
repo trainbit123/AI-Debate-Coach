@@ -1,0 +1,18 @@
+[
+  {
+    "topicId": "topic-ai-regulation",
+    "stance": "FOR",
+    "weakArgument": "AI is super dangerous and will take all our jobs and probably kill everyone so governments should ban everything right now.",
+    "weakFlaws": ["Catastrophic slippery slope", "Devoid of empirical data", "Lacks actionable policy nuance"],
+    "strongArgument": "Frontier models exceeding 10^25 FLOPs pose demonstrable dual-use risks in automated cyber-warfare and CBRN synthesis. Pre-deployment evaluation standards, modeled after the EU AI Act, establish verifiable safety guardrails without impeding narrow commercial innovation.",
+    "strongStrengths": ["Clear compute threshold citation", "Concrete empirical hazard", "Balanced policy compromise"]
+  },
+  {
+    "topicId": "topic-ubi",
+    "stance": "FOR",
+    "weakArgument": "Everyone needs money because rich people are greedy and it's not fair that poor people are poor.",
+    "weakFlaws": ["Ad hominem", "Appeal to emotion", "No economic mechanism explained"],
+    "strongArgument": "Means-tested welfare programs trap recipients in effective marginal tax rates approaching 80% upon workforce entry. A universal cash floor eliminates bureaucratic compliance costs and smooths income volatility during technological labor transitions.",
+    "strongStrengths": ["Economic concept (effective marginal tax rate)", "Addresses administrative efficiency", "Empirical labor transition context"]
+  }
+]

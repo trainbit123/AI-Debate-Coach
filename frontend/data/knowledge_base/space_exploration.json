@@ -1,0 +1,36 @@
+{
+  "topicId": "topic-space-exploration",
+  "topicTitle": "Public Spending on Space Exploration",
+  "documents": [
+    {
+      "id": "kb-space-01",
+      "title": "NASA Technological Spin-off Economic Multipliers",
+      "category": "Technology Transfer & Economics",
+      "stanceAlignment": "PRO_SPACE",
+      "summary": "Economic analysis measuring the return on federal space investment across medical devices, Earth observation, telecommunications, and materials science.",
+      "evidence": "Every $1 in direct NASA appropriation generates approximately $2.80 in domestic economic activity through patents, private supplier contracts, and commercialized consumer technologies including CMOS digital image sensors, cordless tools, memory foam, and solar array advancements.",
+      "citations": ["NASA Spinoff Publication 2024", "The Tauri Group, 'Economic Impact of NASA Expenditures', 2022"],
+      "keywords": ["nasa spinoffs", "economic multiplier", "cmos sensors", "technology transfer", "roi", "stem investment"]
+    },
+    {
+      "id": "kb-space-02",
+      "title": "Planetary Defense & Planetary Redundancy",
+      "category": "Astrophysics & Existential Risk",
+      "stanceAlignment": "PRO_SPACE",
+      "summary": "The existential necessity of tracking Near-Earth Objects (NEOs) and developing self-sustaining off-world settlements to prevent single-planet extinction events.",
+      "evidence": "NASA's DART (Double Asteroid Redirection Test) mission in 2022 proved kinetic impactors can successfully alter celestial orbital trajectories, providing humanity's first active planetary defense mechanism against civilization-ending asteroid collisions.",
+      "citations": ["NASA Planetary Defense Coordination Office (PDCO) Reports, 2023", "Carl Sagan, 'Pale Blue Dot: A Vision of the Human Future in Space'"],
+      "keywords": ["dart mission", "asteroid deflection", "planetary defense", "existential risk", "carl sagan"]
+    },
+    {
+      "id": "kb-space-03",
+      "title": "Opportunity Costs & Terrestrial Crisis Prioritization",
+      "category": "Social Justice & Public Finance",
+      "stanceAlignment": "AGAINST_SPACE",
+      "summary": "Critique of multi-billion dollar lunar and interplanetary budgets while acute humanitarian deprivation persists unaddressed on Earth.",
+      "evidence": "The Artemis lunar program's projected $93 billion budget through 2025 could fully fund clean drinking water infrastructure for 200 million individuals globally or eradicate extreme child malnutrition in targeted crisis regions according to UN World Food Programme estimates.",
+      "citations": ["UN World Food Programme (WFP) Global Cost Estimates", "Government Accountability Office (GAO) Artemis Cost Assessment, 2023"],
+      "keywords": ["opportunity cost", "artemis program", "world food programme", "humanitarian crises", "poverty allocation"]
+    }
+  ]
+}

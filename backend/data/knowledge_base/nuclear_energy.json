@@ -1,0 +1,36 @@
+{
+  "topicId": "topic-nuclear-energy",
+  "topicTitle": "Nuclear Energy & Decarbonization",
+  "documents": [
+    {
+      "id": "kb-nuc-01",
+      "title": "IPCC Assessment on Lifecycle Emissions of Clean Electricity",
+      "category": "Climate Science",
+      "stanceAlignment": "PRO_NUCLEAR",
+      "summary": "Intergovernmental Panel on Climate Change (IPCC) comprehensive lifecycle analysis across generation sources including construction, mining, and decommissioning.",
+      "evidence": "Nuclear power produces a median of 12g CO2-equivalent per kWh of electricity—identical to offshore wind and 4x lower than solar PV (48g CO2/kWh), while operating with a 92% capacity factor compared to 25% for solar and 35% for onshore wind.",
+      "citations": ["IPCC Fifth Assessment Report (AR5), Working Group III, Table A.III.2", "International Energy Agency (IEA), 'Nuclear Power and Secure Energy Transitions', 2022"],
+      "keywords": ["ipcc", "lifecycle emissions", "capacity factor", "clean baseload", "co2 equivalent", "iea"]
+    },
+    {
+      "id": "kb-nuc-02",
+      "title": "Small Modular Reactors (SMRs) & Passive Safety Architecture",
+      "category": "Nuclear Engineering",
+      "stanceAlignment": "PRO_NUCLEAR",
+      "summary": "Engineering review of Generation IV SMRs designed to utilize natural convection and gravity rather than active AC electrical pumps for emergency cooling.",
+      "evidence": "SMR designs like NuScale and Westinghouse AP300 incorporate passive containment heat removal that can withstand prolonged station blackouts indefinitely without operator intervention or external power, eliminating Fukushima-style loss-of-coolant meltdown hazards.",
+      "citations": ["World Nuclear Association, 'Small Modular Reactor Developments', 2024", "US Nuclear Regulatory Commission (NRC) Design Certifications"],
+      "keywords": ["smr", "passive safety", "station blackout", "nuscale", "meltdown prevention"]
+    },
+    {
+      "id": "kb-nuc-03",
+      "title": "Levelized Cost of Electricity (LCOE) & Construction Timelines",
+      "category": "Energy Economics",
+      "stanceAlignment": "AGAINST_NUCLEAR",
+      "summary": "Lazard benchmark comparing levelized costs and construction durations between conventional nuclear and utility-scale solar and battery storage.",
+      "evidence": "Unsubsidized nuclear LCOE ranges from $141 to $221 per MWh, compared to $24–$96 for utility-scale solar and $34–$110 for onshore wind. Landmark projects like Vogtle Units 3 & 4 suffered 7-year construction delays and ballooned from $14 billion to over $35 billion, demonstrating prohibitive financial risk.",
+      "citations": ["Lazard Levelized Cost of Energy Analysis (LCOE 16.0), 2023", "MIT Energy Initiative, 'The Future of Nuclear Energy in a Carbon-Constrained World'"],
+      "keywords": ["lcoe", "lazard", "vogtle", "cost overruns", "construction delays", "capital cost"]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "topicId": "topic-social-media",
+  "topicTitle": "Social Media Algorithms & Youth Mental Health",
+  "documents": [
+    {
+      "id": "kb-sm-01",
+      "title": "US Surgeon General Advisory on Social Media and Youth Mental Health",
+      "category": "Public Health",
+      "stanceAlignment": "PRO_REGULATION",
+      "summary": "Official public health advisory detailing the correlation between algorithmic infinite-scroll engagement feeds and adolescent psychological morbidity.",
+      "evidence": "Adolescents spending more than 3 hours daily on social media face double the risk of experiencing depression and anxiety symptoms. Features like infinite scroll, auto-play, and push notifications specifically trigger intermittent dopamine schedules designed to disrupt sleep patterns and developmental impulse control.",
+      "citations": ["Office of the U.S. Surgeon General, 'Social Media and Youth Mental Health Advisory', 2023"],
+      "keywords": ["surgeon general", "depression", "dopamine", "infinite scroll", "sleep disruption", "anxiety"]
+    },
+    {
+      "id": "kb-sm-02",
+      "title": "Algorithmic Amplification of Outrage & Polarization",
+      "category": "Data Science & Sociology",
+      "stanceAlignment": "PRO_REGULATION",
+      "summary": "Mechanisms by which collaborative filtering models prioritize emotionally volatile content over factual balance to maximize ad revenues.",
+      "evidence": "NYU Center for Social Media & Politics demonstrated that moral-emotional words in social posts increased retweet/reshare rates by 20% per word, with negative outrage content receiving 4x more algorithmic distribution than neutral informational posts.",
+      "citations": ["Nature Human Behaviour, 'The Spread of Moralized Language in Online Networks', 2021", "NYU Stern Center for Business and Human Rights"],
+      "keywords": ["outrage", "polarization", "engagement optimization", "virality", "disinformation"]
+    },
+    {
+      "id": "kb-sm-03",
+      "title": "Supportive Communities & Digital Agency for Marginalized Youth",
+      "category": "Youth Empowerment",
+      "stanceAlignment": "AGAINST_REGULATION",
+      "summary": "Positive psychosocial outcomes facilitated by online affinity groups, peer mental health communities, and creative expression platforms.",
+      "evidence": "The Trevor Project's National Survey found that 68% of LGBTQ+ youth reported finding essential, life-saving social validation, suicide prevention resources, and identity affirmation through specialized online communities that were unavailable in their geographic hometowns.",
+      "citations": ["The Trevor Project National Survey on Mental Health, 2023", "Pew Research Center, 'Teens, Social Media and Technology', 2023"],
+      "keywords": ["community support", "lgbtq youth", "peer validation", "creative expression", "trevor project"]
+    }
+  ]
+}
