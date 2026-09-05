@@ -66,20 +66,38 @@ Debate against an uncompromising collegiate Oxford-level AI opponent, speak your
 
 ## Quick Start
 
-### 1. Install Dependencies
+### 🐍 Python Streamlit Application (Recommended for Python/Streamlit Workshop)
+
 ```bash
+# 1. Install Python dependencies
+pip install -r requirements.txt
+
+# 2. Run the Streamlit AI Debate Coach App
+streamlit run app.py
+```
+*Or simply double-click `run_app.bat` on Windows!*
+
+The app will open automatically at [**http://localhost:8501**](http://localhost:8501).
+
+---
+
+### 🌐 Next.js Web Application
+
+```bash
+# 1. Install Node dependencies
 npm install
-```
 
-### 2. Run Development Server
-```bash
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-### 3. Build for Production
-```bash
-npm run build
+# 2. Run Production Server
 npm start
 ```
+The web app is available at [**http://localhost:3000**](http://localhost:3000).
+
+---
+
+## Python Architecture (`app.py`)
+- `app.py`: Streamlit UI with modern dark arena theme, `st.chat_message`, `st.chat_input`, and interactive metrics.
+- `debate_engine.py`: Session manager handling rounds, stance enforcement, and round orchestration.
+- `scoring_service.py`: 4-metric scoring engine (Clarity, Logic, Evidence, Persuasion).
+- `fallacy_detector.py`: Scans arguments for 9 classical logical fallacies with remedial coaching tips.
+- `llm_service.py`: Ultra-fast Groq (`llama-3.3-70b` / `groq/compound-mini`) & Gemini integration with a zero-key heuristic fallback engine.
+
